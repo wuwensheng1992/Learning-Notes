@@ -1,0 +1,216 @@
+pom.xml文件：xmlns必须写，modelVersion必须写。
+
+m2eclipse	eclipse的maven插件
+mvnrepository.com	maven的中央仓库
+Maven 仓库分类：公共的（http://repo1.maven.org/maven2/）、私有的、本地的
+
+mvn -v	版本号等信息
+mvn compile	编译	mvn clean compile
+mvn test	测试	mvn clean test
+mvn clean	清除target
+mvn package	打包	mvn clean package
+mvn install	安装到本地仓库	mvn clean install
+mvn archetype	项目骨架
+mvn site	站点生成和报告
+
+pom.xml文件中常用的标签
+*groupId	域名.项目名（创建项目时如果没指定packageName，则默认使用groupId）
+*artifactId	模块名（工程名称）
+*version	版本号（快照版本SNAPSHOT或完整发布版本RELEASE或里程碑版本）
+packaging	打包类型（jar、war、pom等）
+denpendencies	引用所有包
+denpendency	单个包
+
+依赖特性（间接依赖、传递性依赖）：
+一、依赖级别相同时，denpendency先申明的为准。
+二、依赖级别不同时，以依赖级别较低的为准。（直接依赖也适用）
+三、如若不需要此版本的jar包，则可采用排除依赖。
+四、<scope>test</scope>不会使用间接依赖。
+
+聚合（几个模块同时执行共同的命令）与继承（父类中已有的且子类也是相同的，则子类可以不用写）：
+一、父类pom.xml文件，groupId、artifactId、version、packaging（pom）
+二、<modules><module>模块的相对路径</module>...</modules>，此为聚合。
+三、<denpendencyManagement></denpendencyManagement>
+四、在子类中使用<parent>...<relativePath>父类pom.xml的相对路径<relativePath><parent>标签继承父类
+
+
+1、查看maven版本
+mvn -v
+2、打印出所有的Java系统属性和环境变量
+mvn help:system
+maven-help-plugin为插件名称，help为插件前缀，system为插件目标。
+3、插件目录
+当前用户本地仓库根目录下，%repository%\org\apache\maven\plugins\maven-help-plugin\2.2\
+groupId:artifactId:version	如：org.apache.maven.plugins:maven-help-plugin:2.2
+4、生成本地项目骨架列表
+1）mvn archetype:generate，显示所有最新稳定版本的项目骨架。
+1）mvn archetype:crawl，在当前用户本地仓库的根目录下生成“archetype-catalog.xml”。
+2）将其移置~\.m2根目录下。
+3）修改“archetype-catalog.xml”文件，配置常用的项目骨架。
+4）mvn archetype:generate -DarchetypeCatalog=local，查看列表。（local/internal/remote，或archetype-catalog.xml的http、ftp地址）
+5、Maven Help 插件有四个目标
+help:active-profiles
+列出当前构建中活动的 Profile（项目的，用户的，全局的）。
+help:effective-pom
+显示当前构建的实际 POM，包含活动的 Profile。 
+help:effective-settings
+打印出项目的实际 settings, 包括从全局的 settings 和用户级别 settings 继
+承的配置。
+help:describe
+描述插件的属性。它不需要在项目目录下运行。但是你必须提供你想要描述插
+件的 groupId 和 artifactId。
+1）输出 Maven Help 插件的信息
+mvn help:describe -Dplugin=help
+2） Help 插件输出完整的带有参数的目标列表
+mvn help:describe -Dplugin=help -Dfull
+3）Compiler 插件获取单个目标（即参数mojo，如：compile）的所有信息
+mvn help:describe -Dplugin=compiler -Dfull -Dmojo=compile
+6、运行jar文件
+原始jar文件：java -cp .;target/original-hello-world-1.0-SNAPSHOT.jar com.ridgetech.mvnbook.helloworld.App
+含Main-Class的jar文件：java -jar target/hello-world-1.0-SNAPSHOT.jar
+7、打印出已解决依赖的列表
+mvn dependency:resolve
+8、打印依赖树
+mvn dependency:tree
+9、打开 Maven 的调试标记 -X
+mvn install -X
+10、Exec 插件在开发过程中用来运行测试。Exec 插件让我们能够在不往 classpath 载入适当的依赖的情况下，运行这个程序。
+想要更健壮的解决方案，使用 Maven Assembly 插件。
+mvn exec:java -Dexec.mainClass=org.sonatype.mavenbook.weather.Main
+11、添加测试范围依赖
+<dependency>
+<groupId>org.apache.commons</groupId>
+<artifactId>commons-io</artifactId>
+<version>1.3.2</version>
+<scope>test</scope>
+</dependency>
+12、添加单元测试资源，目录 src/test/resources
+一个单元测试需要访问针对测试的一组资源。 通常你需要在测试 classpath 中存储一
+些包含期望结果的文件，以及包含模拟输入的文件。
+13、忽略单元测试失败
+方法一：设置 Surefire 的 testFailureIgnore 属性为 true
+<build>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<configuration>
+				<testFailureIgnore>true</testFailureIgnore>
+			</configuration>
+		</plugin>
+	</plugins>
+</build>
+方法二：
+mvn test -Dmaven.test.failure.ignore=true
+14、跳过单元测试
+方法一：设置 Surefire 的 skip 属性为 true
+<build>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<configuration>
+				<skip>true</skip>
+			</configuration>
+		</plugin>
+	</plugins>
+</build>
+方法二：
+mvn install -Dmaven.test.skip=true
+15、配置 Maven 装配描述符 descriptorRefs（bin, jar-with-dependencies, src, and project），添加好这些配置以后，运行 mvn assembly:assembly 来构建这个装配
+<build>
+	<plugins>
+		<plugin>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<configuration>
+				<descriptorRefs>
+					<descriptorRef>jar-with-dependencies</descriptorRef>
+				</descriptorRefs>
+			</configuration>
+		</plugin>
+	</plugins>
+</build>
+具体执行命令：
+mvn clean install assembly:assembly
+java -cp target/simple-weather-1.0-jar-with-dependencies.jar org.sonatype.mavenbook.weather.Main 10002
+16、配置 Jetty 插件
+<build>
+	<plugins>
+		<plugin>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>maven-jetty-plugin</artifactId>
+		</plugin>
+	</plugins>
+</build>
+运行Jetty，在web项目的根目录下执行：mvn jetty:run
+17、配置 hibernate3 插件
+<build>
+	<finalName>simple-webapp</finalName>
+	<plugins>
+		<plugin>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>maven-jetty-plugin</artifactId>
+			<version>6.1.9</version>
+			<dependencies>
+				<dependency>
+					<groupId>hsqldb</groupId>
+					<artifactId>hsqldb</artifactId>
+					<version>1.8.0.7</version>
+				</dependency>
+			</dependencies>
+		</plugin>
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>hibernate3-maven-plugin</artifactId>
+			<version>2.1</version>
+			<configuration>
+				<components>
+					<component>
+						<name>hbm2ddl</name>
+						<implementation>annotationconfiguration</implementation>
+					</component>
+				</components>
+			</configuration>
+			<dependencies>
+				<dependency>
+					<groupId>hsqldb</groupId>
+					<artifactId>hsqldb</artifactId>
+					<version>1.8.0.7</version>
+				</dependency>
+			</dependencies>
+		</plugin>
+	</plugins>
+</build>
+Hibernate3 插件构造数据库：mvn hibernate3:hbm2ddl
+18、构建多模块项目
+首先在父 POM（顶层 POM）中运行：mvn clean install，然后在各个子模块中运行各自特有的命令。
+19、排除依赖 exclusions 
+<dependency>
+	<groupId>org.hibernate</groupId>
+	<artifactId>hibernate</artifactId>
+	<version>3.2.5.ga</version>
+	<exclusions>
+		<exclusion>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+		</exclusion>
+	</exclusions>
+</dependency>
+20、优化依赖
+1）上移共同的依赖至 dependencyManagement
+如果多于一个项目依赖于一个特定的依赖，你可以在 dependencyManagement
+中列出这个依赖。父 POM 包含一个版本和一组排除配置，所有的子 POM 需要
+使用 groupId 和 artifactId 引用这个依赖。如果依赖已经在
+dependencyManagement 中列出，子项目可以忽略版本和排除配置。 
+2）为兄弟项目使用内置的项目 version 和 groupId
+使用{project.version}和${project.groupId}来引用兄弟项目。兄弟项目
+基本上一直共享同样的 groupId，也基本上一直共享同样的发布版本。使用
+${project.version}可以帮你避免前面提到的兄弟版本不一致问题。
+3）解决版本重复问题，在顶层 POM 文件中配置版本属性，然后在子模块中使用 ${属性名} 来替代 version 标签的文本内容。
+<properties>
+	<hibernate.annotations.version>3.3.0.ga</hibernate.annotations.version>
+	<hsqldb.version>1.8.0.7</hsqldb.version>
+</properties>
+
+
+

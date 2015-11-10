@@ -1,0 +1,143 @@
+15、git问题，.（--all）代表所有文件、目录，*.后缀，文件名
+git config --global user.name "wuws"
+git config --global user.email "wuwensheng1992@hotmail.com"
+1）换行符检查，Windows下CRLF，Linux/Unix下LF，添加换行符自动转换的配置。
+warning: LF will be replaced by CRLF in readme.txt.
+解决办法：git config --global core.savecrlf true
+Windows下：git config --global core.autocrlf true
+Linux/Unix下：git config --global core.autocrlf input
+无需跨平台：git config --global core.savecrlf false
+git config --global core.autocrlf false
+2）配置别名
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git config --global alias.unstage "reset head ."
+git config --global alias.unchanges "checkout -- ."
+3）eclipse的egit插件提交提示Auth fail
+解决办法：Eclipse  windows-->preferences-->general-->security-->secure storage-->contents-->GIT.
+选中ssh后点击delete。重启Eclipse就可以了。
+4）git pull
+如果合并需要采用rebase模式，可以使用--rebase选项
+git pull --rebase <远程主机名> <远程分支名>:<本地分支名>
+5）删除远程仓库分支、标签
+git push origin :refs/branches/<branchname>
+git push origin :refs/tags/<tagname>
+6）撤销修改
+查看工作区和版本库里面最新版本的区别：git diff HEAD -- luanma.txt
+丢弃工作区的修改：git checkout -- luanma.txt
+暂存区的修改回退到工作区：git reset HEAD luanma.txt
+7）取回远程主机的更新
+git fetch <远程主机名> <远程分支名>
+git log -p <本地分支名>..<远程主机名>/<远程分支名>
+git merge <远程主机名>/<分支名>
+#或者
+git pull <远程主机名> <远程分支名>:<本地分支名>
+8）获取更新时，本地删除远程已删除的分支
+加上参数 -p 就会在本地删除远程已经删除的分支
+git pull -p <远程主机名> <远程分支名>:<本地分支名>
+#或者
+git fetch --prune <远程主机名> <远程分支名>
+git fetch -p <远程主机名> <远程分支名>
+9）推送更新到远程主机
+git push <远程主机名> <本地分支名>:<远程分支名>
+10）配置远程主机：
+git remote
+git remote -v
+git remote add <版本库的网址>
+git remote rename <旧的远程主机名> <新的远程主机名>
+git remote show origin
+git remote set-url <远程主机名> <版本库的网址>
+11）克隆版本库，git clone支持多种协议，除了HTTP(s)以外，还支持SSH、Git、本地文件协议等。
+克隆整个远程库：git clone <版本库的网址>
+指定远程主机名：git clone -o <远程主机名> <版本库的网址>
+指定本地仓库名称：git clone <版本库的网址> <本地目录名>
+克隆为裸版本库：git clone --bare <版本库的网址>
+克隆为裸版本库，fetch命令和上游版本库进行持续同步：git clone --mirror <版本库的网址>
+12）查看分支
+本地分支：git branch
+远程分支：git branch -r
+所有分支：git branch -a
+分支明细：git branch -v
+13）手动建立追踪关系
+git branch --set-upstream <本地分支名> <远程主机名>/<远程分支名>
+14）删除远程分支
+git push origin :master
+# 等同于
+git push origin --delete master
+15）将本地的所有分支都推送到远程主机
+git push --all <远程主机名>
+16）如果远程主机的版本比本地版本更新，还是要强行推送
+git push --force <远程主机名>
+17）不带任何参数的git push，默认只推送当前分支，这叫做simple方式。
+推送所有有对应的远程分支的本地分支：git config --global push.default matching
+# 或者
+只推送当前分支：git config --global push.default simple 
+18）如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用git push。
+$ git push -u <远程主机名> <本地分支名>:<远程分支名>
+19）要检查已有的配置信息
+git config --list
+git config user.name
+20）获取命令帮助
+git help <verb>
+git <verb> --help
+21）查看已暂存和未暂存的更新
+查看尚未暂存的文件更新了哪些部分：git diff
+查看已经暂存起来的文件和上次提交时的快照之间的差异：
+git diff --cached
+#或者
+git diff --staged
+22）配置编辑器，常用的编辑器有vi、vim、emacs
+git config --global core.editor <编辑器名称>
+23）git commit
+提交更新，在文本编辑器中输入本次提交的说明：git commit
+提交更新并将修改差异的每一行都包含到注释中：git commit -v
+提交更新，在命令行中输入本次提交的说明：git commit -m "<备注>"
+跳过使用暂存区域直接提交已经跟踪过的文件：git commit -a
+撤销刚才（上一次）的提交，并重新提交：git commit --amend
+撤销提交之前可以使用git add，即补上未暂存的文件。
+24）移除文件
+工作区删除：git rm <文件名>。
+工作区强行删除：git rm -f <文件名>
+暂存区删除，工作区还在：git rm --cached <文件名>，然后将文件名加入.gitignore列表。
+删除log目录下以扩展名为.log的文件：git rm log/\*.log
+递归删除当前目录及其子目录中所有 ~ 结尾的文件：git rm \*~
+25）移动文件
+文件改名：git mv <旧文件名> <新文件名>
+#或者
+mv <旧文件名> <新文件名>
+git rm <旧文件名>
+git add <新文件名>
+26）查看提交历史git log
+显示最近的几次更新：git log -<次数>
+log选项 说明
+    -p 按补丁格式显示每个更新之间的差异。
+    --stat 显示每次更新的文件修改统计信息。
+    --shortstat 只显示 --stat 中最后的行数修改添加移除统计。
+    --name-only 仅在提交信息后显示已修改的文件清单。
+    --name-status 显示新增、修改、删除的文件清单。
+    --abbrev-commit 仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。
+    --relative-date 使用较短的相对时间显示（比如，“2 weeks ago”）。
+    --graph 显示 ASCII 图形表示的分支合并历史。
+    --pretty 使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format（后跟指定格式）。
+    -(n) 仅显示最近的 n 条提交
+    --since, --after 仅显示指定时间之后的提交。
+    --until, --before 仅显示指定时间之前的提交。
+    --author 仅显示指定作者相关的提交。
+    --committer 仅显示指定提交者相关的提交。
+定制要显示的记录格式：git log --pretty=format:"%h - %an, %ar : %s"
+列出所有最近两周内的提交：git log --since=2.weeks
+format选项 说明
+    %H 提交对象（commit）的完整哈希字串
+    %h 提交对象的简短哈希字串
+    %T 树对象（tree）的完整哈希字串
+    %t 树对象的简短哈希字串
+    %P 父对象（parent）的完整哈希字串
+    %p 父对象的简短哈希字串
+    %an 作者（author）的名字
+    %ae 作者的电子邮件地址
+    %ad 作者修订日期（可以用 -date= 选项定制格式）
+    %ar 作者修订日期，按多久以前的方式显示
+    %cn 提交者(committer)的名字
+    %ce 提交者的电子邮件地址
+    %cd 提交日期
+    %cr 提交日期，按多久以前的方式显示
+    %s 提交说明

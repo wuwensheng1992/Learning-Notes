@@ -1,0 +1,174 @@
+小毛病：肠胃不好(忌同一段时间内交替食用冷热食物饮料)、过敏性鼻炎、眼压高、打嗝、慢性咽炎、左手大拇指
+接到推销电话，礼貌拒绝，回应“不需要或不感兴趣”，然后直接挂断。
+学而不思则罔，思而不学则殆。学而不用则废，用而不学则滞。
+
+1、javascript中，&&、||取值时，0、""、null、false、undefined、NaN会当成false来处理。
+如：alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
+
+var field = {
+	type: $th.attr("type") || "text",
+	patternDate: $th.attr("dateFmt") || "yyyy-MM-dd",
+	name: $th.attr("name") || "",
+	defaultVal: $th.attr("defaultVal") || "",
+	size: $th.attr("size") || "12",
+	enumUrl: $th.attr("enumUrl") || "",
+	lookupGroup: $th.attr("lookupGroup") || "",
+	lookupUrl: $th.attr("lookupUrl") || "",
+	lookupPk: $th.attr("lookupPk") || "id",
+	suggestUrl: $th.attr("suggestUrl"),
+	suggestFields: $th.attr("suggestFields"),
+	postField: $th.attr("postField") || "",
+	fieldClass: $th.attr("fieldClass") || "",
+	fieldAttrs: $th.attr("fieldAttrs") || ""
+};
+
+
+2、Oracle导入导出，详细参数见百度百科：
+
+EXP '/@orcl as sysdba' FILE=F:\wuws.dmp LOG=F:\wuws.log OWNER=wuws BUFFER=64000
+EXP 'sys/ridge@orcl as sysdba' FILE=F:\wuws.dmp LOG=F:\wuws.log OWNER=wuws BUFFER=64000
+EXP USERID=system/ridge@orcl FILE=F:\wuws.dmp LOG=F:\wuws.log OWNER=wuws BUFFER=64000
+EXP system/ridge@orcl FILE=F:\wuws.dmp LOG=F:\wuws.log OWNER=wuws BUFFER=64000
+EXP system/ridge@orcl FILE=F:\scott.dmp LOG=F:\scott.log OWNER=scott BUFFER=64000
+EXP system/ridge@orcl FILE=F:\orcl.dmp LOG=F:\orcl.log FULL=Y BUFFER=64000
+
+IMP system/ridge@orcl FILE=F:\wuws.dmp LOG=F:\system.log FULL=Y BUFFER=64000
+IMP system/ridge@orcl FILE=F:\wuws.dmp LOG=F:\scott.log FROMUSER=wuws TOUSER=scott BUFFER=64000 IGNORE=Y
+IMP system/ridge@orcl FILE=F:\scott.dmp LOG=F:\wuws.log FROMUSER=scott TOUSER=wuws BUFFER=64000 IGNORE=Y
+
+--查看用户表空间文件路径
+select * from dba_data_files;
+--查询数据库内所有的数据字典
+select * from DICT;
+
+
+3、MySQL库名、表名、字段名
+    库名、表名在sql中使用时区分大小写（针对Linux系统，Windows不区分），但可以通过修改配置文件使其不区分大小写，推荐使用小写字母。
+    字段名在sql中使用时不区分大小写，尽量不超过32个字符（最多支持64个字符），推荐使用大写字母,并采用下划线分割。
+但字段名显式区分大小写，所以Mybatis中的以hashmap返回查询结果时key是区分大小写的，key的大小写以sql中写的字段名为准。
+
+
+4、highcharts的colors: ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9', 
+   '#f15c80', '#e4d354', '#8085e8', '#8d4653', '#91e8e1']
+
+
+5、Tomcat内存溢出：set JAVA_OPTS=-Xms512m -Xmx1536m -XX:PermSize=64M -XX:MaxPermSize=128m -XX:-HeapDumpOnOutOfMemoryError
+
+
+6、Oracle递归查询
+1）查询子孙（包含自己）
+select dept_id from sys_dept start with dept_id=1 connect by prior dept_id=pdept_id
+2）查询祖辈（包含自己）
+select dept_id from sys_dept start with dept_id=241 connect by dept_id=prior pdept_id
+
+
+
+7、Oracle快速删除的脚本
+select 'drop table '||table_name||' cascade constraints purge;' as sqlscript from user_tables;
+select 'drop sequence '||SEQUENCE_NAME||';' as sqlscript from user_sequences;
+select * from user_recyclebin;
+purge recyclebin;
+
+EXP vehicle/vehicle@orcl FILE=E:\vehicle.dmp LOG=E:\vehicle.log OWNER=vehicle BUFFER=64000
+IMP emergency/emergency@orcl FILE=E:\vehicle.dmp LOG=E:\vehicle.log FROMUSER=vehicle TOUSER=emergency BUFFER=64000 IGNORE=Y
+
+
+8、查看Oracle的版本信息
+1）select * from v$version;
+2）select * from PRODUCT_COMPONENT_VERSION;
+3）SET SERVEROUTPUT ON;
+EXEC dbms_output.put_line(dbms_db_version.version);
+
+
+9、JavaEE请求参数乱码问题
+tomcat默认使用ISO-8859-1解码
+get请求：ie使用GBK编码，非ie使用UTF-8编码。
+1）Tomcat的配置文件server.xml中添加URIEncoding="UTF-8"；对地址进行编码encodeURI(uri)，encodeURI默认使用UTF-8编码。
+或者
+2）先编码再解码，new String(request.getParameter("参数名").getBytes("容器的解码方式"),"浏览器的编码方式")。
+post请求：
+1）浏览器post请求默认都是用UTF-8进行编码，获取post请求参数前指定容器的解码方式,即request.setCharacterEncoding("UTF-8")。
+
+
+10、JavaEE输出文件乱码问题。
+1）获取输出流前，必须先指定输出格式，如果是文本则还需指定编码方式。
+response.setContentType("text/html; charset=utf-8");
+2）html页面内容需指定编码
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+11、TortoiseSVN——注意事项
+1）重新定位：修改仓库地址
+2）切换：修改项目路径
+3）分支标记：复制trunk（主干）的项目到tags（标记），复制trunk（主干release发布）的项目到branches（分支bug修复）。
+
+
+12、dwz整合kindeditor，目前多个弹窗引用kindeditor时还有bug，不能保存内容。
+1）打开dwz.ui.js
+2）找到if ($.fn.xheditor){$("textarea.editor", $p).each(function(){......});此处加入代码}
+3）在之后添加代码：
+		$("textarea.kindeditor", $p).each(function () {
+			var $this = $(this);
+//			$.getScript('kindeditor/kindeditor-min.js', function () {	// index.jsp未引入kindeditor-min.js时使用
+//				KindEditor.basePath = 'kindeditor/';
+				var editor = KindEditor.create('textarea[name="'+$this.attr("name")+'"]', {
+					cssPath : 'kindeditor/plugins/code/prettify.css',
+					uploadJson: 'kindeditor/jsp/upload_json.jsp',
+					fileManagerJson: 'kindeditor/jsp/file_manager_json.jsp',
+					allowFileManager: true,
+					afterBlur: function () { editor.sync(); },
+					afterCreate : function() {
+						var self = this;
+						KindEditor.ctrl(document, 13, function() {
+							self.sync();
+							document.forms[0].submit();
+//							$this.parent("form").submit();
+						});
+						KindEditor.ctrl(self.edit.doc, 13, function() {
+							self.sync();
+							document.forms[0].submit();
+//							$this.parent("form").submit();
+						});
+					}
+				});
+				prettyPrint();
+			});
+//		});
+4）页面中使用，元素加上class="kindeditor"即可。
+
+
+13、Eclipse指定JVM虚拟机路径
+1）打开eclipse.ini
+2）指定路径
+-vm "C:\Program Files\Java\jdk1.7.0_79"
+
+-vmargs
+
+
+14、java ee libraries 路径
+C:\My-Program\MyEclipse\Common\plugins\com.genuitec.eclipse.j2eedt.core_10.5.0.me201207171805\data\libraryset
+
+
+16、获取Oracle注释（user_,all_,dba_）
+获取表：select * from user_tables;
+获取表字段：select * from user_tab_columns where Table_Name='SYS_LOGIN_LOG';
+获取表注释：select * from user_tab_comments;
+获取表字段注释：select * from user_col_comments where Table_Name='SYS_LOGIN_LOG';
+获取表约束：select * from user_constraints where table_name='SYS_LOGIN_LOG'
+获取表约束字段：select * from user_cons_columns where table_name='SYS_LOGIN_LOG'
+获取表约束的主键字段：select * from user_cons_columns where constraint_name in(select constraint_name from user_constraints where table_name='TEST_KEY' and constraint_type='P')
+
+
+17、直接将 插件包解压到dropins文件夹下之后，重启eclipse，可能不会加载新的插件。
+解决方法是：
+1、打开命令行，到当前eclipse的目录下，输入eclipse -clean，重新启动eclipse，这样eclipse就会加上新的插件了。
+2、如果插件不能升效，则请将eclipse\configuration\org.eclipse.update目录删除后再启动eclipse:) 
+3、打开%eclipse%\configuration\config.ini文件，在文件的末尾加上：osgi.checkConfiguration=true
+
+
+18、eclipse本地安装插件
+show only the latest versions of available software.	显示可用的软件只有最新版本。
+group items by category.	项目组按类别。
+show only software applicable to target environment.	显示适用于目标环境中唯一的软件。
+contact all update sites during install to find required software.	联系所有更新站点在安装过程中找到所需的软件。
+hide items that are already installed.	隐藏已安装的项目。
