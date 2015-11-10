@@ -1,0 +1,66 @@
+1、安装Git
+1）Windows下安装：Use Git from Git Bash only
+2）配置全局的名字和邮箱：git config --global user.name "wuws"
+3）配置全局的换行符
+提交时检查换行符：git config --global core.safecrlf true
+Windows下：git config --global core.autocrlf true
+Linux/Unix下：git config --global core.autocrlf input
+
+2、命令帮助
+git help <command>
+
+3、常用配置 config
+
+4、创建版本库（通常是现在远程仓库创建版本库，然后再从远程仓库克隆到本地）
+1）git init
+2）裸版本库：git init --bare
+
+5、添加远程库
+1）添加远程库：git remote add <name> <url>
+2）更名：git remote rename <oldname> <newname>
+3）更改地址：git remote set-url <name> <newurl>
+4）查看远程库：git remote -v
+5）远程库详情：git remote show <name>
+
+6、从远程库克隆
+1）git clone [--bare] [--mirror] [-o <name>] <url>
+
+8、历史查看
+1）版本库历史：git log
+2）提交历史：git reflog
+
+9、管理修改
+1）添加到暂存区：git add <pathspec>[,...]
+2）提交到版本库：git commit [-a] [--amend] [-m <remark>]
+3）丢弃工作区的修改：git checkout -- <pathspec>[,...]
+4）丢弃暂存区的修改：git reset head <pathspec>[,...]
+5）版本回退：git reset --hard <[head^]|[head~1]|[commit]>
+6）工作区删除：git rm [-f] <pathspec>[,...]
+7）暂存区删除：git rm --cached <pathspec>[,...]
+
+10、分支管理
+1）查看分支：git branch [-r] [-a] [-v]
+2）创建分支：git branch <name>
+3）切换分支：git checkout <name>
+4）创建并切换分支：git checkout -b <name>
+5）合并分支：git merge <name>
+6）删除分支：git branch [-r] -d <name>
+7）禁用Fast forward模式：git merge --no-ff -m <remark> <name>
+8）bug分支：
+案例，当前正在开发dev分支，可是有几个bug要处理，暂存工作现场。
+a）git stash
+b）git checkout master
+c）git checkout -b <name>
+...
+d）git checkout master
+e）git merge --no-ff -m <remark> <name>
+f）git branch -d <name>
+g）git checkout dev
+h）git stash list
+i）git stash apply <stash>
+git stash drop <stash>
+#或者
+git stash pop <stash>
+
+11、远程库同步
+
