@@ -1,8 +1,8 @@
-maven°æ±¾£º3.2.5
-1¡¢mvn archetype:create±¨´í
-½â¾ö·½·¨£ºmaven3.XÖ®ºó²»Ö§³Ö£¬ÍÆ¼öÊ¹ÓÃÄ¿±êgenerate¡£
+mavenç‰ˆæœ¬ï¼š3.2.5
+1ã€mvn archetype:createæŠ¥é”™
+è§£å†³æ–¹æ³•ï¼šmaven3.Xä¹‹åŽä¸æ”¯æŒï¼ŒæŽ¨èä½¿ç”¨ç›®æ ‡generateã€‚
 
-2¡¢mvn hibernate3:hbm2ddl±¨´í
+2ã€mvn hibernate3:hbm2ddlæŠ¥é”™
 [ERROR] Failed to execute goal org.codehaus.mojo:hibernate3-maven-plugin:2.1:hbm2ddl (default-cli) on project simple-webapp: Could not get ConfigurationTask. -> [Help 1]
 org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.codehaus.mojo:hibernate3-maven-plugin:2.1:hbm2ddl (default-cli) on project simple-webapp: Could not get ConfigurationTask.
 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:216)
@@ -37,7 +37,7 @@ Caused by: org.apache.maven.plugin.MojoExecutionException: Could not get Configu
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
 
-3¡¢mvn dependency:analyze
+3ã€mvn dependency:analyze
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-dependency-plugin:2.8:analyze (default-cli) on project simple-weather: Execution default-cli of goal org.apache.maven.plugins:maven-dependency-plugin:2.8:analyze failed: Cannot accept visitor on URL: file:/D:/Maven Workspace/mvnexbook-examples-1.0/ch-multi-spring/simple-parent/simple-model/target/classes/: Illegal character in path at index 14: file:/D:/Maven Workspace/mvnexbook-examples-1.0/ch-multi-spring/simple-parent/simple-model/target/classes/ -> [Help 1]
 org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.apache.maven.plugins:maven-dependency-plugin:2.8:analyze (default-cli) on project simple-weather: Execution default-cli of goal org.apache.maven.plugins:maven-dependency-plugin:2.8:analyze failed: Cannot accept visitor on URL: file:/D:/Maven Workspace/mvnexbook-examples-1.0/ch-multi-spring/simple-parent/simple-model/target/classes/
 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:224)
