@@ -31,7 +31,7 @@ git help <command>
 
 9、管理修改
 1）添加到暂存区：git add <pathspec>[,...]
-2）提交到版本库：git commit [-a] [--amend] [-m <remark>]
+2）提交到版本库：git commit [-a] [-v] [--amend] [-m <remark>]
 3）丢弃工作区的修改：git checkout -- <pathspec>[,...]
 4）丢弃暂存区的修改：git reset head <pathspec>[,...]
 5）版本回退：git reset --hard <[head^]|[head~1]|[commit]>
