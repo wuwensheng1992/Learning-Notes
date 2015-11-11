@@ -21,3 +21,11 @@ Tomcat实时运行日志：tail -f /usr/local/src/apache-tomcat-6.0.39/logs/cata
 （2）在[mysqld]下加入一行：lower_case_table_names=1
 （3）重新启动数据库即可
 查看大小写区分的SQL命令： show variables like "%case%";
+
+5、查看文件列表
+简略列表：ls -a
+详细列表：ll -ah
+
+6、更改文件权限
+
+
