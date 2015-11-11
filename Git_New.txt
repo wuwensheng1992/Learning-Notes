@@ -47,7 +47,7 @@ c）unchanges别名：git config --global alias.unchanges "checkout -- ."
 6、历史记录查看
 1）版本库历史：git log
 a）单行显示，commit缩写：git log --pretty=oneline --abbrev-commit
-b）本地版本库历史与远程版本库历史的比较：git log -p <local-branchname>..<remotename>/<remote-branchname>
+b）冲突比较：git log -p <local-branchname>..<remotename>/<remote-branchname>
 2）提交历史：git reflog
 
 7、查看工作区变化：git status
