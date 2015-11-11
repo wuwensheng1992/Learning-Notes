@@ -132,7 +132,8 @@ b）创建SSH Key秘钥对：ssh-keygen -t rsa -C "wuwensheng1992@hotmail.com"
 c）私钥：id_rsa文件
 d）公钥：id_rsa.pub文件
 e）在GitHub上添加SSH key的公钥
-2）指定默认主机（多个主机的情况下）：git push -u <remotename> <local-branchname>:<remote-branchname>
+f）本地连接认证：ssh git@github.com，键入yes
+2）指定默认主机（多个主机的情况下）：git push -u <remotename> [local-branchname]:[remote-branchname]
 3）推送分支：git push [remotename] [local-branchname]:[remote-branchname]
 a）简单推送：git push
 a）指定分支：git push <remotename> <local-branchname>
@@ -156,3 +157,5 @@ git merge <remotename>/<remote-branchname>
 #或者
 git pull [-p] <remotename> <remote-branchname>:<local-branchname>
 8）合并更新：
+
+
