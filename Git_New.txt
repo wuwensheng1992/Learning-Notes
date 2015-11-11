@@ -195,11 +195,17 @@ b）所有标签：git push <remotename> --tags
 
 15、拉取更新
 1）指定远程分支
+a）merge 方式
 git fetch [-p|--prune] <remotename> <remote-branchname>（-p 在本地删除远程已经删除的分支）
 git merge <remotename>/<remote-branchname>
 #或者
 git pull [-p|--prune] <remotename> <remote-branchname>:<local-branchname>
-2）所有分支：git fetch --all
+b）rebase 方式
+git fetch <remotename> <remote-branchname>
+git rebase <remotename>/<remote-branchname>
+#或者
+git pull -r|--rebase <remotename> <remote-branchname>:<local-branchname>
+2）所有分支：git fetch --all 或 git pull [-r|--rebase] --all
 
 
 16、分支的变基（一般我们这样做的目的是为了确保在向远程分支推送时能保持提交历史的整洁）
