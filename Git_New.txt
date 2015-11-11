@@ -45,7 +45,7 @@ Windows下：git config --global core.autocrlf true
 Linux/Unix下：git config --global core.autocrlf input
 4）配置编辑器（vi、vim、emacs）：git config --global core.editor <editorname>
 5）配置不带任何参数的git push的推送方式
-a）simple方式（当前分支）：git config --global push.default simple
+a）simple方式（推送当前分支）：git config --global push.default simple
 b）matching方式（推送已关联的所有分支）：git config --global push.default matching
 6）配置别名 alias
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
