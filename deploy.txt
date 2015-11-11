@@ -1,0 +1,17 @@
+公网IP：121.43.153.55
+root帐号：
+root密码：
+“短信发送”程序的路径：/home/voidin/sms
+
+MySQL地址：121.43.153.55:3306
+root帐号：
+root密码：
+sms帐号：sms
+sms密码：voiding.com123456
+
+程序执行命令：
+1、后台运行程序并输出日志到文件：nohup java -jar ***.jar >***.out 2>&1 &
+2、查看程序实时运行日志：tail -f 文件路径
+3、查看程序进程信息：ps -ef |grep www.baidu.com或java
+4、查看后台进程：jobs -l
+5、关闭程序：kill pid
