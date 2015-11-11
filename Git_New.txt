@@ -1,5 +1,5 @@
 1、常用术语
-1）工作区（Working Directory）：含有.git目录的文件夹
+1）工作区（Working Directory）：除.git目录外的其他文件或目录
 2）暂存区（stage或称index）：index文件
 3）版本库（Repository）：.git目录
 4）指针（HEAD）：HEAD文件
@@ -10,8 +10,11 @@
 HTTP(s)协议：https://github.com/wuwensheng1992/Learning-Notes.git
 SSH协议：git@github.com:wuwensheng1992/Learning-Notes.git
 Subversion协议：https://github.com/wuwensheng1992/Learning-Notes
-本地文件协议：git clone D:\Learning-Notes.git
+本地文件协议：D:\Learning-Notes.git 或 file://D:\Learning-Notes.git
 Git协议：
+9）集中式版本控制系统：CVS、SVN、VSS
+10）分布式版本控制系统：Cit
+11）<file>的值：.标识匹配所有，*.*匹配指定格式文件，文件名，多个文件已逗号分割，--all|-A
 
 2、安装Git
 1）Windows下安装：Use Git from Git Bash only
@@ -21,7 +24,7 @@ Git协议：
 3、命令帮助
 git help <command>
 
-4、常用配置 config（--global则为全局，不加则为当前工作区）
+4、常用配置 config（--global则为全局，不加则为当前Git仓库）
 1）查看配置：git config [--global] --list
 2）配置名字和邮箱
 a）名字：git config --global user.name "wuws"
@@ -41,30 +44,32 @@ b）unstage别名：git config --global alias.unstage "reset head ."
 c）unchanges别名：git config --global alias.unchanges "checkout -- ."
 
 5、创建版本库（通常是先在远程仓库创建版本库，然后再从远程仓库克隆到本地）
-1）git init
-2）裸版本库：git init --bare
+1）在一个空目录下执行：git init
+2）裸版本库（没有工作区）：git init --bare
 
 6、历史记录查看
-1）版本库历史：git log
+1）显示从最近到最远的提交日志：git log
 a）单行显示，commit缩写：git log --pretty=oneline --abbrev-commit
 b）冲突比较：git log -p <local-branchname>..<remotename>/<remote-branchname>
 2）提交历史：git reflog
 
-7、查看工作区变化：git status
+7、查看仓库当前的状态：git status
 
 8、差异比较
-1）查看工作区和版本库里面最新版本的区别：git diff HEAD -- <pathspec>[,...]
-2）比较本地分支与远程分支的差异：git diff -p <local-branchname>..<remotename>/<remote-branchname>
-3）
+1）查看修改内容（前提是还没暂存）：git diff <file>
+2）查看工作区、暂存区和版本库里面最新版本的区别：git diff HEAD -- <file>
+3）比较本地分支与远程分支的差异：git diff -p <local-branchname>..<remotename>/<remote-branchname>
+
 
 9、管理修改
-1）添加到暂存区：git add <pathspec>[,...]
+1）添加到暂存区：git add <file>
 2）提交到版本库：git commit [-a] [-v] [--amend] [-m <remark>]
-3）丢弃工作区的修改：git checkout -- <pathspec>[,...]
-4）丢弃暂存区的修改：git reset head <pathspec>[,...]
+3）丢弃工作区的修改：git checkout -- <file>
+4）丢弃暂存区的修改：git reset head <file>
 5）版本回退：git reset --hard <[head^]|[head~1]|[commit]>
-6）工作区删除：git rm [-f] <pathspec>[,...]
-7）暂存区删除：git rm --cached <pathspec>[,...]
+6）工作区删除：git rm [-f] <file>
+7）暂存区删除：git rm --cached <file>
+8）移动文件（也可以用来更名）：git mv <old-pathname> <new-pathname>
 
 10、分支管理
 1）查看分支：git branch [-r] [-a] [-v]
