@@ -153,8 +153,10 @@ c）创建标签
 6）移除远程仓库：git remote rm <name>
 
 
-13、克隆远程版本库
-1）git clone [--bare] [--mirror] [-o <name>] <url>
+13、克隆远程仓库
+1）克隆为普通仓库（仓库下.git目录为版本库，其他为工作区；默认仓库名为"原仓库名"）：git clone [-o <remotename>] <url> [directory]
+2）克隆为裸仓库（没有工作区和.git目录，仓库下即为版本库；默认仓库名为"原仓库名"+".git"）：git clone --bare <url>
+3）克隆为裸仓库，fetch命令和上游（upstream）版本库进行持续同步：git clone --mirror <url>
 2）克隆完后通常会自动地创建一个跟踪 origin/master 的 master 分支。
 3）创建跟踪分支：git checkout -b <local-branchname> <remotename>/<remote-branchname>
 #或者（新创建分支的名字同远程分支的名字）
@@ -212,6 +214,6 @@ git merge experiment
 
 
 17、GitHub使用
-1）
+1）开放推送权限：进入仓库——》Settings——》Collaborators——》添加合作者
 2）
 
