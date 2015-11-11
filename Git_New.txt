@@ -30,7 +30,8 @@ e）Git协议：git://
 
 3、命令帮助
 git help <command>
-
+#或者
+git <command> --help
 
 4、常用配置 config（--global则为全局，不加则为当前Git仓库）
 1）查看配置：git config [--global] --list
