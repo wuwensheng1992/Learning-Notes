@@ -18,7 +18,7 @@ d）本地协议：/opt/git/project.git
 e）Git协议：git://
 9）集中式版本控制系统：CVS、SVN、VSS
 10）分布式版本控制系统：Cit
-11）<pathname>的值：.标识匹配所有，*.*匹配指定格式文件，文件名，多个文件已逗号分割，--all|-A
+11）<pathname>的值：.标识匹配所有，*.class匹配以.class结尾的文件，文件名，多个文件已逗号分割，--all|-A
 
 
 2、安装Git
@@ -33,6 +33,7 @@ git help <command>
 
 4、常用配置 config（--global则为全局，不加则为当前Git仓库）
 1）查看配置：git config [--global] --list
+a）配置明细：git config user.email
 2）配置名字和邮箱
 a）名字：git config --global user.name "wuws"
 b）邮箱：git config --global user.email "wuwensheng1992@hotmail.com"
@@ -66,7 +67,8 @@ git config --global alias.last 'log -1 HEAD'
 1）显示从最近到最远的提交日志：git log
 a）单行显示，commit缩写：git log --pretty=oneline --abbrev-commit
 b）冲突比较：git log -p <local-branchname>..<remotename>/<remote-branchname>
-2）提交历史：git reflog
+3）显示最近几次的提交日志：git log -<number>
+2）查看引用日志信息：git reflog
 
 
 7、查看仓库当前的状态：git status
@@ -87,7 +89,7 @@ b）冲突比较：git log -p <local-branchname>..<remotename>/<remote-branchnam
 6）工作区删除：git rm [-f] <pathname>
 7）暂存区删除：git rm --cached <pathname>
 8）移动文件（也可以用来更名）：git mv <old-pathname> <new-pathname>
-9）修改上次的提交（添加文件、修改说明）：git commit --amend
+9）修改上次的提交（补充暂存文件、修改说明）：git commit --amend
 
 
 10、分支管理
@@ -148,19 +150,19 @@ c）创建标签
 4）查看远程仓库：git remote -v
 5）远程仓库详情：git remote show <name>
 6）移除远程仓库：git remote rm <name>
-7）查看远程引用的完整列表：git ls-remote [name]
 
 
 13、克隆远程版本库
 1）git clone [--bare] [--mirror] [-o <name>] <url>
 2）克隆完后通常会自动地创建一个跟踪 origin/master 的 master 分支。
-3）创建跟踪分支：git checkout --track <remotename>/<remote-branchname>
-#或者（可自定义分支名）
-git checkout -b <local-branchname> <remotename>/<remote-branchname>
+3）创建跟踪分支：git checkout -b <local-branchname> <remotename>/<remote-branchname>
+#或者（新创建分支的名字同远程分支的名字）
+git checkout --track <remotename>/<remote-branchname>
 4）设置本地分支跟踪远程分支：git branch --set-upstream <local-branchname> <remotename>/<remote-branchname>
 #或者（当前分支）
 git branch -u|--set-upstream-to <remotename>/<remote-branchname>
 5）查看所有跟踪分支：git branch -vv
+6）查看远程引用的完整列表：git ls-remote [name]
 
 
 14、推送更新
@@ -176,13 +178,13 @@ f）本地连接认证：ssh git@github.com，键入yes
 a）简单推送：git push
 a）指定分支：git push <remotename> <local-branchname>
 b）所有分支：git push --all <remotename>
-c）强行推送：git push --force <remotename>
+c）强行推送（远程仓库的版本更新）：git push --force <remotename>
 4）删除分支
-git branch -rd <remote-branchname>
-#或者
 git push origin --delete <remote-branchname>
 #或者
 git push <remotename> :<remote-branchname>
+#或者
+git branch -rd <remote-branchname>
 #或者
 git push <remotename> :refs/branches/<remote-branchname>
 5）推送标签
@@ -192,13 +194,20 @@ b）所有标签：git push <remotename> --tags
 
 
 15、拉取更新
-1）git fetch [-p|--prune] <remotename> <remote-branchname>（-p 在本地删除远程已经删除的分支）
+1）指定远程分支
+git fetch [-p|--prune] <remotename> <remote-branchname>（-p 在本地删除远程已经删除的分支）
 git merge <remotename>/<remote-branchname>
 #或者
 git pull [-p|--prune] <remotename> <remote-branchname>:<local-branchname>
+2）所有分支：git fetch --all
 
 
-16、分支的变基 rebase
-1）
+16、分支的变基（一般我们这样做的目的是为了确保在向远程分支推送时能保持提交历史的整洁）
+1）实施方案：
+git checkout experiment
+git rebase master
+git checkout master
+git merge experiment
 
 
+17、
