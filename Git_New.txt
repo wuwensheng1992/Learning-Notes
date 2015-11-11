@@ -1,10 +1,10 @@
-1、常用术语
+1、常用术语、提示
 1）工作区（Working Directory）：除.git目录外的其他文件或目录
 2）暂存区（stage或称index）：index文件
 3）版本库（Repository）：.git目录
 4）指针（HEAD）：HEAD文件
 5）.gitignore文件：忽略匹配的文件
-6）README.md文件：版本库描述
+6）README.md文件：放版本库或项目新人需要了解的所有相关的信息
 7）LICENSE文件：许可证
 8）Git支持多种协议：本地协议（Local）、HTTP 协议、SSH（Secure Shell）协议及 Git 协议，Git默认使用SSH协议。
 a）HTTP(s)协议：https://example.com/gitproject.git
@@ -13,12 +13,13 @@ b）SSH协议：ssh://user@server/project.git
 #或者简短的 scp 式的写法：user@server:project.git
 案例：git@github.com:wuwensheng1992/Learning-Notes.git
 c）Subversion协议：https://github.com/wuwensheng1992/Learning-Notes
-d）本地协议：/opt/git/project.git
+d）本地协议：/opt/git/project.git 或 file:///opt/git/project.git
 案例：D:\Learning-Notes.git 或 file://D:\Learning-Notes.git
 e）Git协议：git://
 9）集中式版本控制系统：CVS、SVN、VSS
 10）分布式版本控制系统：Cit
 11）<pathname>的值：.标识匹配所有，*.class匹配以.class结尾的文件，文件名，多个文件已逗号分割，--all|-A
+12）通常对于公开项目可以优先分享基于 HTTP 的 URL，因为用户克隆项目不需要有一个 GitHub 帐号。 如果你分享 SSH URL，用户必须有一个帐号并且上传 SSH 密钥才能访问你的项目。 HTTP URL 与你贴到浏览器里查看项目用的地址是一样的。
 
 
 2、安装Git
@@ -210,5 +211,7 @@ git checkout master
 git merge experiment
 
 
-17、
+17、GitHub使用
+1）
+2）
 
