@@ -6,23 +6,30 @@
 5）.gitignore文件：忽略匹配的文件
 6）README.md文件：版本库描述
 7）LICENSE文件：许可证
-8）Git支持多种协议：HTTP(s)、SSH、Git、本地文件协议等
-HTTP(s)协议：https://github.com/wuwensheng1992/Learning-Notes.git
-SSH协议：git@github.com:wuwensheng1992/Learning-Notes.git
-Subversion协议：https://github.com/wuwensheng1992/Learning-Notes
-本地文件协议：D:\Learning-Notes.git 或 file://D:\Learning-Notes.git
-Git协议：
+8）Git支持多种协议：本地协议（Local）、HTTP 协议、SSH（Secure Shell）协议及 Git 协议，Git默认使用SSH协议。
+a）HTTP(s)协议：https://example.com/gitproject.git
+案例：https://github.com/wuwensheng1992/Learning-Notes.git
+b）SSH协议：ssh://user@server/project.git
+#或者简短的 scp 式的写法：user@server:project.git
+案例：git@github.com:wuwensheng1992/Learning-Notes.git
+c）Subversion协议：https://github.com/wuwensheng1992/Learning-Notes
+d）本地协议：/opt/git/project.git
+案例：D:\Learning-Notes.git 或 file://D:\Learning-Notes.git
+e）Git协议：git://
 9）集中式版本控制系统：CVS、SVN、VSS
 10）分布式版本控制系统：Cit
-11）<file>的值：.标识匹配所有，*.*匹配指定格式文件，文件名，多个文件已逗号分割，--all|-A
+11）<pathname>的值：.标识匹配所有，*.*匹配指定格式文件，文件名，多个文件已逗号分割，--all|-A
+
 
 2、安装Git
 1）Windows下安装：Use Git from Git Bash only
 2）配置全局的名字和邮箱
 3）配置换行符
 
+
 3、命令帮助
 git help <command>
+
 
 4、常用配置 config（--global则为全局，不加则为当前Git仓库）
 1）查看配置：git config [--global] --list
@@ -39,13 +46,21 @@ Linux/Unix下：git config --global core.autocrlf input
 a）simple方式（当前分支）：git config --global push.default simple
 b）matching方式（推送已关联的所有分支）：git config --global push.default matching
 6）配置别名 alias
-a）lg别名：git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-b）unstage别名：git config --global alias.unstage "reset head ."
-c）unchanges别名：git config --global alias.unchanges "checkout -- ."
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.unstage 'reset HEAD --'
+git config --global alias.unchanges 'checkout --'
+git config --global alias.last 'log -1 HEAD'
+7）HTTPS 避免每次输入密码：git config --global credential.helper cache
+
 
 5、创建版本库（通常是先在远程仓库创建版本库，然后再从远程仓库克隆到本地）
 1）在一个空目录下执行：git init
 2）裸版本库（没有工作区）：git init --bare
+
 
 6、历史记录查看
 1）显示从最近到最远的提交日志：git log
@@ -53,48 +68,55 @@ a）单行显示，commit缩写：git log --pretty=oneline --abbrev-commit
 b）冲突比较：git log -p <local-branchname>..<remotename>/<remote-branchname>
 2）提交历史：git reflog
 
+
 7、查看仓库当前的状态：git status
 
+
 8、差异比较
-1）查看修改内容（前提是还没暂存）：git diff <file>
-2）查看工作区、暂存区和版本库里面最新版本的区别：git diff HEAD -- <file>
+1）查看修改内容（前提是还没暂存）：git diff <pathname>
+2）查看工作区、暂存区和版本库里面最新版本的区别：git diff HEAD -- <pathname>
 3）比较本地分支与远程分支的差异：git diff -p <local-branchname>..<remotename>/<remote-branchname>
 
 
 9、管理修改
-1）添加到暂存区：git add <file>
-2）提交到版本库：git commit [-a] [-v] [--amend] [-m <remark>]
-3）丢弃工作区的修改：git checkout -- <file>
-4）丢弃暂存区的修改：git reset head <file>
+1）添加到暂存区：git add <pathname>
+2）提交到版本库：git commit [-a] [-v] [-m <remark>]
+3）丢弃工作区的修改：git checkout -- <pathname>
+4）丢弃暂存区的修改：git reset head <pathname>
 5）版本回退：git reset --hard <[head^]|[head~1]|[commit]>
-6）工作区删除：git rm [-f] <file>
-7）暂存区删除：git rm --cached <file>
+6）工作区删除：git rm [-f] <pathname>
+7）暂存区删除：git rm --cached <pathname>
 8）移动文件（也可以用来更名）：git mv <old-pathname> <new-pathname>
+9）修改上次的提交（添加文件、修改说明）：git commit --amend
+
 
 10、分支管理
 1）查看分支：git branch [-r] [-a] [-v]
 2）创建分支：git branch <name>
 3）切换分支：git checkout <name>
 4）创建并切换分支：git checkout -b <name>
-5）合并分支：git merge <name>
+5）分支的合并（如果master的指针没有推进，则使用Fast forward模式自动地创建一个新的合并提交；否则需要解决冲突，然后再手动提交）：
+git merge <name>
 6）删除分支：git branch -d <name>
 7）禁用Fast forward模式：git merge --no-ff -m <remark> <name>
-8）bug分支：
+8）查看已经合并到当前分支的分支：git branch --merged
+9）查看灭有合并到当前分支的分支：git branch --no-merged
+10）bug分支：
 案例，当前正在开发dev分支，可是有几个bug要处理，暂存工作现场。
 a）git stash
 b）git checkout master
-c）git checkout -b <name>
+c）git checkout -b issue101
 ...
 d）git checkout master
-e）git merge --no-ff -m <remark> <name>
-f）git branch -d <name>
+e）git merge --no-ff -m "..." issue101
+f）git branch -d issue101
 g）git checkout dev
 h）git stash list
 i）git stash apply <stash>
 git stash drop <stash>
 #或者
 git stash pop <stash>
-9）feature分支
+11）feature分支
 案例：你接到了一个新任务：开发代号为Vulcan的新功能，该功能计划用于下一代星际飞船。
 一切顺利的话，feature分支和bug分支是类似的，合并，然后删除。
 但是，就在此时，接到上级命令，因经费不足，新功能必须取消！
@@ -105,10 +127,11 @@ b）dev分支是开发分支，团队所有成员都需要在上面工作，所�
 c）bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；
 d）feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。
 
+
 11、标签管理
-1）创建标签：git tag <tagname> [commit]
-2）创建带有说明的标签：git tag -a <tagname> -m <remark> [commit]
-3）创建用私钥签名的标签（前提是已安装gpg，即GnuPG，有gpg密钥对）：git tag -s <tagname> -m <remark> [commit]
+1）创建轻量标签：git tag <tagname> [commit]
+2）创建附注标签：git tag -a <tagname> -m <remark> [commit]
+3）创建私钥签名的标签（前提是已安装gpg，即GnuPG，有gpg密钥对）：git tag -s <tagname> -m <remark> [commit]
 2）查看标签：git tag
 3）标签明细：git show <tagname>
 4）删除标签：git tag -d <tagname>
@@ -117,20 +140,30 @@ a）切换到需要打标签的分支。
 b）查看版本库历史记录，找到需要打标签的commit。
 c）创建标签
 
-12、添加远程库
-1）添加远程库：git remote add <name> <url>
+
+12、远程仓库
+1）添加远程仓库：git remote add <name> <url>
 2）更名：git remote rename <oldname> <newname>
 3）更改地址：git remote set-url <name> <newurl>
-4）查看远程库：git remote -v
-5）远程库详情：git remote show <name>
+4）查看远程仓库：git remote -v
+5）远程仓库详情：git remote show <name>
+6）移除远程仓库：git remote rm <name>
+7）查看远程引用的完整列表：git ls-remote [name]
+
 
 13、克隆远程版本库
 1）git clone [--bare] [--mirror] [-o <name>] <url>
-2）克隆完后本地只有一个主分支，其他分支待创建。
-3）创建分支并关联远程分支：git checkout -b <local-branchname> <remotename>/<remote-branchname>
-4）关联远程分支：git branch --set-upstream <local-branchname> <remotename>/<remote-branchname>
+2）克隆完后通常会自动地创建一个跟踪 origin/master 的 master 分支。
+3）创建跟踪分支：git checkout --track <remotename>/<remote-branchname>
+#或者（可自定义分支名）
+git checkout -b <local-branchname> <remotename>/<remote-branchname>
+4）设置本地分支跟踪远程分支：git branch --set-upstream <local-branchname> <remotename>/<remote-branchname>
+#或者（当前分支）
+git branch -u|--set-upstream-to <remotename>/<remote-branchname>
+5）查看所有跟踪分支：git branch -vv
 
-14、远程库同步
+
+14、推送更新
 1）SSH Keys
 a）采用SSH协议时，因为GitHub需要识别出你推送的提交确实是你推送的，而不是别人冒充的，而Git支持SSH协议，所以，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送。
 b）创建SSH Key秘钥对：ssh-keygen -t rsa -C "wuwensheng1992@hotmail.com"
@@ -156,11 +189,16 @@ git push <remotename> :refs/branches/<remote-branchname>
 a）指定标签：git push <remotename> <tagname>
 b）所有标签：git push <remotename> --tags
 6）删除标签：git push origin :refs/tags/<tagname>
-7）抓取远程更新：（-p 在本地删除远程已经删除的分支）
-git fetch [-p|--prune] <remotename> <remote-branchname>
+
+
+15、拉取更新
+1）git fetch [-p|--prune] <remotename> <remote-branchname>（-p 在本地删除远程已经删除的分支）
 git merge <remotename>/<remote-branchname>
 #或者
-git pull [-p] <remotename> <remote-branchname>:<local-branchname>
-8）合并更新：
+git pull [-p|--prune] <remotename> <remote-branchname>:<local-branchname>
+
+
+16、分支的变基 rebase
+1）
 
 
