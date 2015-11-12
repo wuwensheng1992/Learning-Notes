@@ -14,7 +14,7 @@ b）SSH协议：ssh://user@server/project.git
 案例：git@github.com:wuwensheng1992/Learning-Notes.git
 c）Subversion协议：https://github.com/wuwensheng1992/Learning-Notes
 d）本地协议：/opt/git/project.git 或 file:///opt/git/project.git
-案例：D:\Learning-Notes.git 或 file://D:\Learning-Notes.git
+案例：D:\Learning-Notes.git 或 file:///D:\Learning-Notes.git
 e）Git协议：git://
 9）集中式版本控制系统：CVS、SVN、VSS
 10）分布式版本控制系统：Cit
@@ -65,12 +65,16 @@ git config --global alias.last 'log -1 HEAD'
 2）裸版本库（没有工作区）：git init --bare
 
 
-6、历史记录查看
+6、版本库历史记录查看
 1）显示从最近到最远的提交日志：git log
-a）单行显示，commit缩写：git log --pretty=oneline --abbrev-commit
-b）冲突比较：git log -p <local-branchname>..<remotename>/<remote-branchname>
-3）显示最近几次的提交日志：git log -<number>
-2）查看引用日志信息：git reflog
+2）单行、commit缩写显示：git log --pretty=oneline --abbrev-commit
+3）树形显示：git log --graph
+4）拉取更新后对分支作比较：git log -p <local-branchname>..<remotename>/<remote-branchname>
+5）显示最近几次的提交日志：git log -<number>
+6）查看类似于 git log 输出格式的引用日志信息：git log -g <branchname>
+7）查看A分支中还有哪些提交尚未被合并入B分支：git log <B-branchname>..<A-branchname>
+8）查看你即将推送到远端的内容：git log <remotename>/<remote-branchname>..HEAD
+9）查看A分支或者B分支中包含的但不是两者共有的提交：git log [--left-right] <A-branchname>...<B-branchname>
 
 
 7、查看仓库当前的状态：git status
@@ -94,18 +98,37 @@ b）冲突比较：git log -p <local-branchname>..<remotename>/<remote-branchnam
 9）修改上次的提交（补充暂存文件、修改说明）：git commit --amend
 
 
+10、选择修订版本
+1）查看一个分支的最后一次提交的对象：git show <branchname>
+2）查看提交详情：git show <commit>
+3）某个分支指向哪个特定的 SHA-1：git rev-parse <branchname>
+4）看任何一个例子中被简写的 SHA-1 ：git rev-parse <commit>
+5）查看引用日志信息（本地仓库）：git reflog
+a）查看仓库中 HEAD 最近那次的所指向的提交：
+git show HEAD@{number}
+#或者（^的个数表示最近那次）
+git show HEAD^^^
+#或者
+git show HEAD~number
+b）以某次提交为基准，查看最近那次的提交：
+git show <commit>^^^
+#或者
+git show <commit>~number
+c）查看你的 master 分支在昨天的时候指向了哪个提交：git show master@{yesterday}
+
+
 10、分支管理
 1）查看分支：git branch [-r] [-a] [-v]
 2）创建分支：git branch <name>
 3）切换分支：git checkout <name>
 4）创建并切换分支：git checkout -b <name>
-5）分支的合并（如果master的指针没有推进，则使用Fast forward模式自动地创建一个新的合并提交；否则需要解决冲突，然后再手动提交）：
+5）分支的合并（如果目标分支的指针没有推进，则使用Fast forward模式自动地创建一个新的合并提交；否则需要解决冲突，然后再手动提交）：
 git merge <name>
 6）删除分支：git branch -d <name>
 7）禁用Fast forward模式：git merge --no-ff -m <remark> <name>
 8）查看已经合并到当前分支的分支：git branch --merged
 9）查看灭有合并到当前分支的分支：git branch --no-merged
-10）bug分支：
+10）bug分支
 案例，当前正在开发dev分支，可是有几个bug要处理，暂存工作现场。
 a）git stash
 b）git checkout master
@@ -218,4 +241,6 @@ git merge experiment
 17、GitHub使用
 1）开放推送权限：进入仓库——》Settings——》Collaborators——》添加合作者
 2）
+
+
 
