@@ -69,12 +69,13 @@ git config --global alias.last 'log -1 HEAD'
 1）显示从最近到最远的提交日志：git log
 2）单行、commit缩写显示：git log --pretty=oneline --abbrev-commit
 3）树形显示：git log --graph
-4）拉取更新后对分支作比较：git log -p <local-branchname>..<remotename>/<remote-branchname>
-5）显示最近几次的提交日志：git log -<number>
-6）查看类似于 git log 输出格式的引用日志信息：git log -g <branchname>
-7）查看A分支中还有哪些提交尚未被合并入B分支：git log <B-branchname>..<A-branchname>
-8）查看你即将推送到远端的内容：git log <remotename>/<remote-branchname>..HEAD
-9）查看A分支或者B分支中包含的但不是两者共有的提交：git log [--left-right] <A-branchname>...<B-branchname>
+4）显示最近几次的提交日志：git log -<number>
+5）查看类似于 git log 输出格式的引用日志信息：git log -g <branchname>
+6）查看A分支中还有哪些提交尚未被合并入B分支：git log <B-branchname>..<A-branchname>
+案例：查看你即将推送到远端的提交，git log <remotename>/<remote-branchname>..HEAD
+7）分支作内容比较：git log -p <B-branchname>..<A-branchname>
+案例：查看你即将推送到远端的内容，git log -p <remotename>/<remote-branchname>..<local-branchname>
+8）查看A分支或者B分支中包含的但不是两者共有的提交：git log [--left-right] <A-branchname>...<B-branchname>
 
 
 7、查看仓库当前的状态：git status
@@ -122,10 +123,10 @@ c）查看你的 master 分支在昨天的时候指向了哪个提交：git show
 2）创建分支：git branch <name>
 3）切换分支：git checkout <name>
 4）创建并切换分支：git checkout -b <name>
-5）分支的合并（如果目标分支的指针没有推进，则使用Fast forward模式自动地创建一个新的合并提交；否则需要解决冲突，然后再手动提交）：
+5）分支的合并（如果当前分支的指针没有推进，则默认使用Fast forward模式将指针指向目标分支的提交，此时历史记录是并排的；否则需要解决冲突，然后再手动建一个新的提交，此时历史记录会出现分叉）：
 git merge <name>
 6）删除分支：git branch -d <name>
-7）禁用Fast forward模式：git merge --no-ff -m <remark> <name>
+7）禁用Fast forward模式（当前分支创建新的提交，历史纪录出现分叉）：git merge --no-ff -m <remark> <name>
 8）查看已经合并到当前分支的分支：git branch --merged
 9）查看灭有合并到当前分支的分支：git branch --no-merged
 10）bug分支
@@ -223,7 +224,7 @@ b）所有标签：git push <remotename> --tags
 15、拉取更新
 1）指定远程分支
 git fetch [-p|--prune] <remotename> <remote-branchname>（-p 在本地删除远程已经删除的分支）
-git log -p <local-branchname>..<remotename>/<remote-branchname>
+git log -p <local-branchname>..<remotename>/<remote-branchname>（-p查看更新了哪些内容）
 git merge <remotename>/<remote-branchname> 或 git rebase <remotename>/<remote-branchname>
 #或者
 git pull [-r|--rebase] [-p|--prune] <remotename> <remote-branchname>:<local-branchname>
@@ -241,6 +242,5 @@ git merge experiment
 17、GitHub使用
 1）开放推送权限：进入仓库——》Settings——》Collaborators——》添加合作者
 2）
-
 
 
