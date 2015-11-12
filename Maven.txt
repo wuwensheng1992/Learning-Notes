@@ -29,9 +29,20 @@ denpendency	单个包
 
 聚合（几个模块同时执行共同的命令）与继承（父类中已有的且子类也是相同的，则子类可以不用写）：
 一、父类pom.xml文件，groupId、artifactId、version、packaging（pom）
-二、<modules><module>模块的相对路径</module>...</modules>，此为聚合。
-三、<denpendencyManagement></denpendencyManagement>
-四、在子类中使用<parent>...<relativePath>父类pom.xml的相对路径<relativePath><parent>标签继承父类
+二、聚合：
+<modules>
+	<module>模块的相对路径</module>
+</modules>
+三、依赖管理，子类不需要再声明版本号和排除依赖
+<dependencyManagement>
+</dependencyManagement>
+四、继承：
+<parent>
+	<groupId></groupId>
+	<artifactId></artifactId>
+	<version></version>
+	<relativePath>父类pom.xml的相对路径（默认为../pom.xml）<relativePath>
+<parent>
 
 
 1、查看maven版本
