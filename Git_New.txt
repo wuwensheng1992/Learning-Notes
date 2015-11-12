@@ -20,6 +20,7 @@ e）Git协议：git://
 10）分布式版本控制系统：Cit
 11）<pathname>的值：.标识匹配所有，*.class匹配以.class结尾的文件，文件名，多个文件已逗号分割，--all|-A
 12）通常对于公开项目可以优先分享基于 HTTP 的 URL，因为用户克隆项目不需要有一个 GitHub 帐号。 如果你分享 SSH URL，用户必须有一个帐号并且上传 SSH 密钥才能访问你的项目。 HTTP URL 与你贴到浏览器里查看项目用的地址是一样的。
+13）不能区分是哪个远程个分支时，或不使用本地分支时，需加上远程主机名：<remotename>/<branchname>
 
 
 2、安装Git
@@ -32,6 +33,7 @@ e）Git协议：git://
 git help <command>
 #或者
 git <command> --help
+
 
 4、常用配置 config（--global则为全局，不加则为当前Git仓库）
 1）查看配置：git config [--global] --list
