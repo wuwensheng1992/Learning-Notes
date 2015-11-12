@@ -75,8 +75,8 @@ git config --global alias.last 'log -1 HEAD'
 5）查看类似于 git log 输出格式的引用日志信息：git log -g <branchname>
 6）查看A分支中还有哪些提交尚未被合并入B分支：git log <B-branchname>..<A-branchname>
 案例：查看你即将推送到远端的提交，git log <remotename>/<remote-branchname>..HEAD
-7）查看A分支中还有哪些提交尚未被合并入B分支（对修改作比较）：git log -p <B-branchname>..<A-branchname>
-案例：查看你即将推送到远端的提交（对修改作比较），git log -p <remotename>/<remote-branchname>..<local-branchname>
+7）查看A分支中还有哪些提交尚未被合并入B分支（加入对修改作比较）：git log -p <B-branchname>..<A-branchname>
+案例：查看你即将推送到远端的提交（加入对修改作比较），git log -p <remotename>/<remote-branchname>..<local-branchname>
 8）查看A分支或者B分支中包含的但不是两者共有的提交：git log [--left-right] <A-branchname>...<B-branchname>
 
 
@@ -86,7 +86,8 @@ git config --global alias.last 'log -1 HEAD'
 8、差异比较
 1）查看修改内容（前提是还没暂存）：git diff <pathname>
 2）查看工作区、暂存区和版本库里面最新版本的区别：git diff HEAD -- <pathname>
-3）比较本地分支与远程分支的差异：git diff -p <local-branchname>..<remotename>/<remote-branchname>
+3）查看A分支中还有哪些提交尚未被合并入B分支（对修改作比较）：git diff <B-branchname>..<A-branchname>
+案例：查看你即将推送到远端的提交（对修改作比较），git diff <remotename>/<remote-branchname>..<local-branchname>
 
 
 9、管理修改
