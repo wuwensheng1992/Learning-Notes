@@ -4,6 +4,7 @@ m2eclipse	eclipse的maven插件
 mvnrepository.com	maven的中央仓库
 Maven 仓库分类：公共的（http://repo1.maven.org/maven2/）、私有的、本地的
 Maven坐标：groupId:artifactId:version
+项目对象模型：Project Object Model, POM
 
 mvn -v	版本号等信息
 mvn compile	编译	mvn clean compile
