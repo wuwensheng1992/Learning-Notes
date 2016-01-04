@@ -1,0 +1,37 @@
+Eclipse常用快捷键：
+
+F4	类型层次（超类、父类、子类、父接口、子接口、实现类）
+
+Ctrl + 鼠标左键点击		查看常量、属性、变量声明处
+Ctrl + 上下	光标移动
+Ctrl + 1	操作提示
+Ctrl + ,	查看上一处警告或错误
+Ctrl + .	查看下一处警告或错误
+Ctrl + /	行注释
+Ctrl + M	窗口最大化
+Ctrl + O	类的大纲
+Ctrl + T	继承关系
+
+Ctrl + Shift + C	行注释
+Ctrl + Shift + /	代码块注释
+Ctrl + Shift + T	查找类、接口
+Ctrl + Shift + M	引入单个类、接口
+Ctrl + Shift + O	引入所有类、接口
+Ctrl + Shift + Enter	插入行
+
+Shift + Enter		追加行
+
+Alt + 上下	代码移动
+Alt + /		代码提示
+
+Alt + Shift + J		文档注释
+Alt + Shift + R		重命名类、接口、常量、属性、变量、方法等
+Alt + Shift + M		抽取方法
+Alt + Shift + C		修改方法签名
+Alt + Shift + A		列编辑
+
+Ctrl + Alt + H		查看类、接口、常量、属性、方法调用处
+
+
+
+
