@@ -11,12 +11,14 @@ Ctrl + /	行注释
 Ctrl + M	窗口最大化
 Ctrl + O	类的大纲
 Ctrl + T	继承关系
+Ctrl + S	保存当前文件
 
 Ctrl + Shift + C	行注释
 Ctrl + Shift + /	代码块注释
 Ctrl + Shift + T	查找类、接口
 Ctrl + Shift + M	引入单个类、接口
 Ctrl + Shift + O	引入所有类、接口
+Ctrl + Shift + S	保存全部文件
 Ctrl + Shift + Enter	插入行
 
 Shift + Enter		追加行
