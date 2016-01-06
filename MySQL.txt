@@ -10,6 +10,22 @@
 
 第二部分：实际应用
 
+1、日期时间
+CURRENT_TIMESTAMP：日期时间、CURRENT_DATE：日期、CURRENT_TIME：时间
+CURRENT_TIMESTAMP()：日期时间、CURRENT_DATE()：日期、CURRENT_TIME()：时间
+NOW()：日期时间、CURDATE()：日期、CURTIME()：时间
+SYS_DATE()：日期时间、UNIX_TIMESTAMP()：UNIX时间戳（1970-01-01 00:00:00 UTC/GMT 开始算起的总秒数）、SLEEP(int)：睡眠
+keyword：YEAR、MONTH、DAY、HOUR、MINUTE、SENCOND
+简写:Y、m、d、H/h、i、s，前缀：%
+获取日期时间的某部分函数：YEAR(date)、MONTH(date)、DAY(date)、HOUR(date)、MINUTE(date)、SENCOND(date)
+获取日期部分函数：DATE(date)、获取时间部分函数：TIME(date)
+第几天：DAYOFYEAR(date)、DAYOFMONTH(date)、DAYOFWEEK(date)
+日期转字符串：DATE_FORMAT(date, format)
+字符串转日期：STR_TO_DATE(format, date)
+日期时间格式：'%Y-%m-%d %H:%i:%s'、日期格式：'%Y-%m-%d'、时间格式：'%H:%i:%s'
+日期加函数：DATE_ADD(date, INTERVAL int keyword)
+日期减函数：DATE_SUB(date, INTERVAL int keyword)
+
 
 
 
