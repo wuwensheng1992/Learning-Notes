@@ -1,0 +1,7 @@
+
+OpenSymphony：http://www.opensymphony.com/
+
+Codehaus开源托管平台：http://www.codehaus.org/
+
+Google Code代码托管平台：http://www.googlecode.com
+

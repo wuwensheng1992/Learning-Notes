@@ -13,6 +13,9 @@ Ctrl + O	类的大纲
 Ctrl + T	继承关系
 Ctrl + S	保存当前文件
 
+Ctrl + Shift + P	光标切换到匹配符的开始或结束，如{}、()
+Ctrl + Shift + X	转换成大写
+Ctrl + Shift + Y	转换成小写
 Ctrl + Shift + C	行注释
 Ctrl + Shift + /	代码块注释
 Ctrl + Shift + T	查找类、接口
