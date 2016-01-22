@@ -34,6 +34,7 @@ Alt + Shift + R		重命名类、接口、常量、属性、变量、方法等
 Alt + Shift + M		抽取方法
 Alt + Shift + C		修改方法签名
 Alt + Shift + A		列编辑
+Alt + Shift + O		高亮显示开启或关闭
 
 Ctrl + Alt + H		查看类、接口、常量、属性、方法调用处
 
