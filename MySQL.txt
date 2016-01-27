@@ -27,6 +27,39 @@ keyword：YEAR、MONTH、DAY、HOUR、MINUTE、SENCOND
 日期减函数：DATE_SUB(date, INTERVAL int keyword)
 
 
+-- 添加唯一约束
+ALTER TABLE `sys_user` ADD UNIQUE(`username`);
+-- 添加索引
+CREATE INDEX `engineer_idcard_index` ON `res_engineer`(`idcard`);
+-- 添加外键
+ALTER TABLE `sys_user_role` ADD CONSTRAINT `sys_user_role_fk1` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`id`) ON DELETE CASCADE;
+
+-- datetime的空值是null，timestamp的空值是0000-00-00 00:00:00
+select str_to_date('','%Y-%m-%d') aa;
+select date_format(null,'%Y-%m-%d') bb;
+case when #{receive_time}='' then null else str_to_date(#{receive_time},'%Y-%m-%d') end
+
+-- 创建数据库、用户，分配权限
+drop database if exists res;
+create database res DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+DROP USER `res`@`%`;
+CREATE USER `res`@`%` IDENTIFIED BY '123456';
+GRANT ALL ON res.* TO `res`@`%`;
+flush privileges;
+
+SELECT, INSERT, UPDATE, REFERENCES, DELETE, CREATE, DROP, ALTER, INDEX, TRIGGER, CREATE VIEW, SHOW VIEW, EXECUTE, ALTER ROUTINE, CREATE ROUTINE, CREATE TEMPORARY TABLES, LOCK TABLES, EVENT
+localhost, %, IPAddress
+GRANT ALL ON res.* TO `res`@`%` WITH GRANT OPTION;
+GRANT GRANT OPTION ON `res`.* TO `res`@`%`;
+GRANT ALL ON *.* TO `res`@`%`;
+REVOKE privilege ON databasename.tablename FROM `username`@`host`;
+show grants for `res`@`%`;
+DROP USER `res`@`%`;
+SET PASSWORD FOR `username`@`host` = PASSWORD('newpassword');
+SET PASSWORD = PASSWORD("newpassword");
+
+
+
 
 
 
