@@ -27,10 +27,14 @@ keyword：YEAR、MONTH、DAY、HOUR、MINUTE、SENCOND
 日期减函数：DATE_SUB(date, INTERVAL int keyword)
 
 
--- 添加唯一约束
-ALTER TABLE `sys_user` ADD UNIQUE(`username`);
--- 添加索引
-CREATE INDEX `engineer_idcard_index` ON `res_engineer`(`idcard`);
+-- 添加唯一索引
+ALTER TABLE `sys_user` ADD UNIQUE [`sys_user_index`](`username`);
+-- 创建唯一索引
+CREATE UNIQUE INDEX `sys_user_index` ON `sys_user`(`username`); 
+-- 添加普通索引
+ALTER TABLE `sys_user` ADD INDEX [`sys_user_index`](`username`);
+-- 创建普通索引
+CREATE INDEX `sys_user_index` ON `sys_user`(`username`);
 -- 添加外键
 ALTER TABLE `sys_user_role` ADD CONSTRAINT `sys_user_role_fk1` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`id`) ON DELETE CASCADE;
 
