@@ -1,43 +1,65 @@
-Eclipse常用快捷键：
+Eclipse常用快捷键(Window->Preferences->General->Keys)：
 
+F1	帮助
+F2	查看文档注释
+F3	查看变量声明处
 F4	类型层次（超类、父类、子类、父接口、子接口、实现类）
 
+F11 Debug模式
+Ctrl + F11	Run模式
+Ctrl + Shift + B	添加/去除断点
+F5	单步跳入
+F6	单步跳过
+F7	单步返回
+F8	继续
+
 Ctrl + 鼠标左键点击		查看常量、属性、变量声明处
-Ctrl + 上下	光标移动
+Ctrl + 上下	滚动一行（光标不动）
+Ctrl + 鼠标滚轮	滚动一页（光标不动）
 Ctrl + 1	操作提示
 Ctrl + ,	查看上一处警告、错误...（工具栏可配置要搜索的项）
 Ctrl + .	查看下一处警告、错误...（工具栏可配置要搜索的项）
 Ctrl + /	行注释
-Ctrl + M	窗口最大化
+Ctrl + M	最大化/最小化窗口
 Ctrl + O	类的大纲
 Ctrl + T	继承关系
+Ctrl + PgUp	向左切换选项卡
+Ctrl + PgDn	向右切换选项卡
+Ctrl + D	删除当前行
+Ctrl + W	关闭当前选项卡
+Ctrl + Shift + 关闭所有选项卡
 Ctrl + S	保存当前文件
+Ctrl + Shift + S	保存全部文件
 
+Ctrl + Shift + T	查找类、接口、枚举、注解
+Ctrl + Shift + R	查找文件
 Ctrl + Shift + P	光标切换到匹配符的开始或结束，如{}、()
 Ctrl + Shift + X	转换成大写
 Ctrl + Shift + Y	转换成小写
 Ctrl + Shift + C	行注释
 Ctrl + Shift + /	代码块注释
-Ctrl + Shift + T	查找类、接口
-Ctrl + Shift + M	引入单个类、接口
-Ctrl + Shift + O	引入所有类、接口
-Ctrl + Shift + S	保存全部文件
+Ctrl + Shift + M	导入单个包
+Ctrl + Shift + O	导入所有包
+Ctrl + Shift + F	代码格式化
 Ctrl + Shift + Enter	插入行
-
 Shift + Enter		追加行
 
 Alt + 上下	代码移动
 Alt + /		代码提示
-
+Alt + ->	下一个编辑页面
+Alt + <-	上一个编辑页面
+	
 Alt + Shift + J		文档注释
 Alt + Shift + R		重命名类、接口、常量、属性、变量、方法等
 Alt + Shift + M		抽取方法
 Alt + Shift + C		修改方法签名
+Alt + Shift + L		抽取本地变量
+Alt + Shift + I		合并变量
 Alt + Shift + A		列编辑
-Alt + Shift + O		高亮显示开启或关闭
+Alt + Shift + O		开启/关闭高亮显示
 
 Ctrl + Alt + H		查看类、接口、常量、属性、方法调用处
 
-
+Alt + Shift + B		开启编辑器第一栏显示当前文件的目录结构
 
 
