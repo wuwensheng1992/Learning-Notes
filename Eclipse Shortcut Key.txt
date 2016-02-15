@@ -31,6 +31,7 @@ Ctrl + Shift + 关闭所有选项卡
 Ctrl + S	保存当前文件
 Ctrl + Shift + S	保存全部文件
 
+Ctrl + Shift + L	显示快捷键帮助
 Ctrl + Shift + T	查找类、接口、枚举、注解
 Ctrl + Shift + R	查找文件
 Ctrl + Shift + P	光标切换到匹配符的开始或结束，如{}、()
@@ -60,6 +61,6 @@ Alt + Shift + O		开启/关闭高亮显示
 
 Ctrl + Alt + H		查看类、接口、常量、属性、方法调用处
 
-Alt + Shift + B		开启编辑器第一栏显示当前文件的目录结构
+Alt + Shift + B		开启当前文件的痕迹导航
 
 
