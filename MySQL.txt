@@ -35,8 +35,14 @@ CREATE UNIQUE INDEX `sys_user_index` ON `sys_user`(`username`);
 ALTER TABLE `sys_user` ADD INDEX [`sys_user_index`](`username`);
 -- 创建普通索引
 CREATE INDEX `sys_user_index` ON `sys_user`(`username`);
--- 添加外键
+-- 添加外键（默认限制删除和限制更新，ON DELETE CASCADE/SET NULL ON UPDATE CASCADE）
 ALTER TABLE `sys_user_role` ADD CONSTRAINT `sys_user_role_fk1` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`id`) ON DELETE CASCADE;
+ALTER TABLE `coop_engineer` ADD CONSTRAINT `coop_engineer_fk2` FOREIGN KEY (`area_name`) REFERENCES `sys_dictionary` (`dictionary_code`) ON UPDATE CASCADE;
+ALTER TABLE `coop_engineer` ADD CONSTRAINT `coop_engineer_fk3` FOREIGN KEY (`bureau_auth_level`) REFERENCES `sys_dictionary` (`dictionary_code`) ON UPDATE CASCADE;
+-- 添加字段
+ALTER TABLE `res`.`res_meter` ADD COLUMN `solid_capital_no` VARCHAR(255) DEFAULT NULL COMMENT '固资编号';
+-- 修改字段
+ALTER TABLE `res`.`sys_role` MODIFY COLUMN `role_tag` VARCHAR(255) DEFAULT '查看' COMMENT '权限（查看、管理、超级）';
 
 -- datetime的空值是null，timestamp的空值是0000-00-00 00:00:00
 select str_to_date('','%Y-%m-%d') aa;
