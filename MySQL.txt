@@ -68,7 +68,32 @@ DROP USER `res`@`%`;
 SET PASSWORD FOR `username`@`host` = PASSWORD('newpassword');
 SET PASSWORD = PASSWORD("newpassword");
 
+show variables like '%storage_engine%';
 
+SET SQL_MODE="STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION";
+SELECT @@sql_mode;
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SELECT @@sql_mode;
+
+DROP FUNCTION IF EXISTS `getChildrenWithDictionary`;
+DELIMITER ;;
+CREATE FUNCTION `getChildrenWithDictionary`(dictionaryId INT) RETURNS varchar(4000) CHARSET utf8
+BEGIN
+DECLARE sTemp VARCHAR(4000);
+DECLARE sTempChd VARCHAR(4000);
+DECLARE sTempChdLength VARCHAR(4000);
+SET sTemp = '$';
+SET sTempChd = cast(dictionaryId as char);
+SET sTempChdLength = CHAR_LENGTH(sTempChd)+4;
+WHILE sTempChd is not NULL DO
+SET sTemp = CONCAT(sTemp,',',sTempChd);
+SELECT group_concat(dictionary_id) INTO sTempChd FROM sys_dictionary where FIND_IN_SET(parent_id,sTempChd)>0;
+END WHILE;
+return CONCAT('$',',',substring(sTemp,sTempChdLength));
+END
+;;
+DELIMITER ;
 
 
 
