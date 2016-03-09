@@ -1,5 +1,5 @@
 
-group_condition.split(","); // 舍弃最后的空白元素,空字符串拆分为1个空白元素
+group_condition.split(","); // 舍弃最后所有的空白元素,空字符串拆分为1个空白元素
 
 StringUtils.split(group_condition, ','); // 舍弃所有空白元素,空字符串拆分为0个元素
 
