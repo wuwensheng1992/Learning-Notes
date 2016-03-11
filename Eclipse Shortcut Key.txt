@@ -61,6 +61,7 @@ Alt + Shift + O		开启/关闭高亮显示
 
 Ctrl + Alt + H		查看类、接口、常量、属性、方法调用处
 
-Alt + Shift + B		开启当前文件的痕迹导航
+Quick Access（快速访问）
+1、Toggle Breadcrumb.面包屑导航
 
 
