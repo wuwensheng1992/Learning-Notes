@@ -43,6 +43,8 @@ ALTER TABLE `coop_engineer` ADD CONSTRAINT `coop_engineer_fk3` FOREIGN KEY (`bur
 ALTER TABLE `res`.`res_meter` ADD COLUMN `solid_capital_no` VARCHAR(255) DEFAULT NULL COMMENT '固资编号';
 -- 修改字段
 ALTER TABLE `res`.`sys_role` MODIFY COLUMN `role_tag` VARCHAR(255) DEFAULT '查看' COMMENT '权限（查看、管理、超级）';
+-- 删除字段
+ALTER TABLE `coop`.`coop_engineer` DROP COLUMN `auth_2_3g`;
 
 -- datetime的空值是null，timestamp的空值是0000-00-00 00:00:00
 select str_to_date('','%Y-%m-%d') aa;
@@ -68,14 +70,17 @@ DROP USER `res`@`%`;
 SET PASSWORD FOR `username`@`host` = PASSWORD('newpassword');
 SET PASSWORD = PASSWORD("newpassword");
 
+-- 查看存储类型
 show variables like '%storage_engine%';
 
+-- 设置SQL语法的严格程度
 SET SQL_MODE="STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION";
 SELECT @@sql_mode;
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SELECT @@sql_mode;
 
+-- 创建函数
 DROP FUNCTION IF EXISTS `getChildrenWithDictionary`;
 DELIMITER ;;
 CREATE FUNCTION `getChildrenWithDictionary`(dictionaryId INT) RETURNS varchar(4000) CHARSET utf8
@@ -95,7 +100,15 @@ END
 ;;
 DELIMITER ;
 
-
+-- 创建视图
+DROP VIEW IF EXISTS `year_month_project_area_basic`;
+CREATE VIEW `year_month_project_area_basic` AS SELECT t.one_year,cod.one_month,t.order_id,t.basic_id
+	,CASE WHEN AVG(assessment_score) IS NULL OR AVG(assessment_score)+IFNULL(t.manage_score,0)>=95 THEN SUM(service_money) 
+					ELSE ROUND(SUM(service_money)*(100-(95-(AVG(assessment_score)+IFNULL(t.manage_score,0))))/100,2) END quarter_bill
+FROM coop_order t
+LEFT OUTER JOIN coop_order_detail cod ON cod.order_id=t.order_id
+WHERE t.process_result='0'
+GROUP BY t.order_id,cod.one_month ;
 
 
 
