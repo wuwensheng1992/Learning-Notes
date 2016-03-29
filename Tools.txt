@@ -24,7 +24,7 @@ Windows自带的notepad（记事本编辑器），保存UTF-8编码的文件时�
 4）Notepad++未保存文件快照，设置 --> 首选项 --> 备份 --> Remember current session for next launch --> 启动文件组群快照和定期备份
 
 4、安装多版本jdk
-1）删除“C:\Windows\System32”目录下的java.exe、javaw.exe、javaws.exe等三个文件。
+1）删除“C:\Windows\System32”和“C:\Windows\SysWOW64”目录下的java.exe、javaw.exe、javaws.exe等三个文件。
 2）删除“C:\ProgramData\Oracle\Java”目录。
 3）可以正确显示环境变量中配置的JAVA_HOME版本。
 
