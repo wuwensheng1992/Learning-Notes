@@ -110,7 +110,26 @@ LEFT OUTER JOIN coop_order_detail cod ON cod.order_id=t.order_id
 WHERE t.process_result='0'
 GROUP BY t.order_id,cod.one_month ;
 
+-- 存在更新，不存在新增
+#单条
+INSERT INTO res_vehicle(profession_type,area_name,project_name,company_name,driver_name,driver_phone
+	,vehicle_model,license_plate,remark,team_name)
+VALUES(#{profession_type},#{area_name},#{project_name},#{company_name},#{driver_name},#{driver_phone}
+	,#{vehicle_model},#{license_plate},#{remark},#{team_name}
+) ON DUPLICATE KEY UPDATE
+	profession_type=#{profession_type},area_name=#{area_name},project_name=#{project_name}
+	,company_name=#{company_name},driver_name=#{driver_name},driver_phone=#{driver_phone}
+	,vehicle_model=#{vehicle_model},license_plate=#{license_plate},remark=#{remark},team_name=#{team_name}
+#批量
+INSERT INTO res_vehicle(profession_type,area_name,project_name,company_name,driver_name,driver_phone
+	,vehicle_model,license_plate,remark,team_name)
+SELECT profession_type,area_name,project_name,company_name,driver_name,driver_phone
+	,vehicle_model,license_plate,remark,team_name
+FROM res_vehicle_history t
+ON DUPLICATE KEY UPDATE
+	profession_type=t.profession_type,area_name=t.area_name,project_name=t.project_name,company_name=t.company_name
+	,driver_name=t.driver_name,driver_phone=t.driver_phone,vehicle_model=t.vehicle_model,license_plate=t.license_plate
+	,remark=t.remark,team_name=t.team_name
 
-
-
-
+-- 密码采用MD5加密
+UPDATE `res`.`sys_user` SET `password`=MD5(`password`);
