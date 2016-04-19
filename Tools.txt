@@ -1,6 +1,8 @@
 1、Java+Eclipse+Tomcat
 1）安装32位和64位的jdk，配置32位的到环境变量。
-2）Eclipse配置运行的jdk，eclipse.ini文件。
+2）Eclipse配置启动的jdk，在eclipse.ini文件的--launcher.appendVmargs之下添加以下内容：
+-vm
+C:\Program Files\Java\jdk1.8.0_73\bin\javaw.exe 
 3）Eclipse配置Tomcat，Windows-->Preferences-->Runtime Environments-->add-->勾选Create a new local server-->选择Tomcat的主路径-->Finish。
 4）Tomcat配置，切换到Server选项卡，右键New-->Server-->选择服务器版本、服务器名称、服务器的主机名（地址）。
 切换到Server选项卡，双击已添加的服务-->配置（服务器名称、服务器主机名、服务器配置文件的路径、Tomcat的主路径、部署路径），如果呈现灰色则先移除已部署的项目并清理Tomcat。
