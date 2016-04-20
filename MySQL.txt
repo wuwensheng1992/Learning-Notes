@@ -26,7 +26,7 @@ keyword：YEAR、MONTH、DAY、HOUR、MINUTE、SENCOND
 日期加函数：DATE_ADD(date, INTERVAL int keyword)
 日期减函数：DATE_SUB(date, INTERVAL int keyword)
 
-
+注意：索引字段有限制字节长度总和。
 -- 添加唯一索引
 ALTER TABLE `sys_user` ADD UNIQUE [`sys_user_index`](`username`);
 -- 创建唯一索引
