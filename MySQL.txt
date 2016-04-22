@@ -21,7 +21,7 @@ keyword：YEAR、MONTH、DAY、HOUR、MINUTE、SENCOND
 获取日期部分函数：DATE(date)、获取时间部分函数：TIME(date)
 第几天：DAYOFYEAR(date)、DAYOFMONTH(date)、DAYOFWEEK(date)
 日期转字符串：DATE_FORMAT(date, format)
-字符串转日期：STR_TO_DATE(format, date)
+字符串转日期：STR_TO_DATE(dateStr, format)
 日期时间格式：'%Y-%m-%d %H:%i:%s'、日期格式：'%Y-%m-%d'、时间格式：'%H:%i:%s'
 日期加函数：DATE_ADD(date, INTERVAL int keyword)
 日期减函数：DATE_SUB(date, INTERVAL int keyword)
