@@ -45,6 +45,8 @@ ALTER TABLE `res`.`res_meter` ADD COLUMN `solid_capital_no` VARCHAR(255) DEFAULT
 ALTER TABLE `res`.`sys_role` MODIFY COLUMN `role_tag` VARCHAR(255) DEFAULT '查看' COMMENT '权限（查看、管理、超级）';
 -- 删除字段
 ALTER TABLE `coop`.`coop_engineer` DROP COLUMN `auth_2_3g`;
+-- 字段更名
+ALTER TABLE `res`.`sys_bulletin` CHANGE `content` `article` TEXT DEFAULT NULL COMMENT '文章';
 -- 更改表名
 ALTER TABLE `res_bulletin` RENAME `sys_bulletin`;
 
