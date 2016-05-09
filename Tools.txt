@@ -26,9 +26,10 @@ Windows自带的notepad（记事本编辑器），保存UTF-8编码的文件时�
 4）Notepad++未保存文件快照，设置 --> 首选项 --> 备份 --> Remember current session for next launch --> 启动文件组群快照和定期备份
 
 4、安装多版本jdk
-1）删除“C:\Windows\System32”和“C:\Windows\SysWOW64”目录下的java.exe、javaw.exe、javaws.exe等三个文件。
-2）删除“C:\ProgramData\Oracle\Java”目录。
-3）可以正确显示环境变量中配置的JAVA_HOME版本。
+1）删除系统变量path中的“C:\ProgramData\Oracle\Java\javapath”项。
+-- 删除“C:\Windows\System32”和“C:\Windows\SysWOW64”目录下的java.exe、javaw.exe、javaws.exe等三个文件。
+-- 删除“C:\ProgramData\Oracle\Java”目录。
+2）可以正确显示环境变量中配置的JAVA_HOME版本。
 
 5、iReport使用
 1）iReport5.6不支持jdk8及以上版本，若是安装了则只能指定iReport启动使用的jdk，在%IREPORT_HOME%\etc\ireport.conf文件中添加jdkhome="C:\Program Files\Java\jdk1.7.0_79"
