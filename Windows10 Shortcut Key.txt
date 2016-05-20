@@ -26,10 +26,11 @@ Win + 方向	当前窗口上下左右停靠或放大缩小
 
 Alt + Tab	切换当前桌面的程序
 Alt + F4	关闭当前窗口
-Alt + 双击	查看文件属性
+Alt + 左键双击	查看文件属性
 
 Shift + Space	全角半角切换
-Shift + 右键	可选择复制为路径
+Shift + 右键单击	可选择复制为路径
+Shift + Delete	彻底删除
 
 Ctrl + C	复制
 Ctrl + X	剪切
