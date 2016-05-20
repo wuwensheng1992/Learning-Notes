@@ -32,6 +32,8 @@ Shift + Space		全角半角切换
 Shift + 右键单击	可选择复制为路径
 Shift + Del			彻底删除
 
+Ctrl + A	全选
+Ctrl + 左键单击		多选
 Ctrl + C	复制
 Ctrl + X	剪切
 Ctrl + V	粘贴
@@ -40,6 +42,7 @@ Ctrl + Y	重做
 Ctrl + S	保存
 Ctrl + Tab	切换标签
 
+Ctrl + Shift + 左键单击		起始文件到结尾文件选中
 Ctrl + Shift + S	全部保存
 Ctrl + Shift + Esc	任务管理器
 Ctrl + Alt + Del	定位登录窗口	
