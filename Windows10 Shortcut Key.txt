@@ -1,6 +1,10 @@
+Ctrl + Win + D		创建虚拟桌面
+Ctrl + Win + F4		关闭虚拟桌面
+Ctrl + Win + 左/右	切换虚拟桌面
+
 Win + 1~9	任务栏程序
 Win + +/-	放大镜
-Win + Tab	多桌面窗口管理
+Win + Tab	多桌面管理窗口
 Win + Q/S	Cortana文字输入
 Win + E		文件资源管理器
 Win + R		运行
@@ -9,7 +13,7 @@ Win + I		设置
 Win + P		投影
 Win + A		操作中心
 Win + D		切换到桌面
-Win + G		游戏录制工具栏
+Win + G		游戏录制工具
 Win + H		共享屏幕截图
 Win + K		连接
 Win + L		锁定
@@ -18,3 +22,21 @@ Win + C		Cortana语音输入
 Win + B		定位通知区域
 Win + M		定位桌面
 Win + <		预览桌面
+Win + 方向	当前窗口上下左右停靠或放大缩小
+
+Alt + Tab	切换当前桌面的程序
+Alt + F4	关闭当前窗口
+Alt + 双击	查看文件属性
+
+Shift + Space	全角半角切换
+Shift + 右键	可选择复制为路径
+
+Ctrl + C	复制
+Ctrl + X	剪切
+Ctrl + V	粘贴
+Ctrl + Z	撤销
+Ctrl + Y	重做
+Ctrl + S	保存
+Ctrl + Tab	切换标签
+
+Ctrl + Shift + S	全部保存

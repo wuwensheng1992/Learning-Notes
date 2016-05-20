@@ -5,8 +5,10 @@ Ctrl + /	添加/删除行注释
 Ctrl + P	显示参数列表
 Ctrl + R	变量重命名
 
+Alt + Enter	操作提示
+
 Ctrl + Shift + I	引入所有包
-Ctrl + Shift + Space	显示文档
+Ctrl + Shift + Space	显示文档注释
 Ctrl + Shift + C	添加/删除行注释
 
 Alt + Shift + F		代码格式化
