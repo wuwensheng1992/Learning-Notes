@@ -2,7 +2,7 @@ Ctrl + Win + D		创建虚拟桌面
 Ctrl + Win + F4		关闭虚拟桌面
 Ctrl + Win + 左/右	切换虚拟桌面
 
-Win + 1~9	任务栏程序
+Win + 1~9	定位任务栏程序
 Win + +/-	放大镜
 Win + Tab	多桌面管理窗口
 Win + Q/S	Cortana文字输入
@@ -22,27 +22,39 @@ Win + C		Cortana语音输入
 Win + B		定位通知区域
 Win + M		定位桌面
 Win + <		预览桌面
+Win + Space	切换键盘
 Win + 方向	当前窗口上下左右停靠或放大缩小
 
-Alt + Tab	切换当前桌面的程序
-Alt + F4	关闭当前窗口
+Alt + Tab		切换当前桌面的程序
+Alt + F4		关闭当前窗口
 Alt + 左键双击	查看文件属性
 
-Shift + Space		全角半角切换
-Shift + 右键单击	可选择复制为路径
+Shift + 左键单击	连续选中
+Shift + 右键单击	可选择复制为路径（即上下文菜单新增一项“复制为路径”）
 Shift + Del			彻底删除
+Shift + Space		全角半角切换
 
-Ctrl + A	全选
-Ctrl + 左键单击		多选
-Ctrl + C	复制
-Ctrl + X	剪切
-Ctrl + V	粘贴
-Ctrl + Z	撤销
-Ctrl + Y	重做
-Ctrl + S	保存
-Ctrl + Tab	切换标签
+Ctrl + 左键单击		单个多选
+Ctrl + 鼠标滚轮		视图放大/缩小
+Ctrl + A			全选
+Ctrl + C			复制
+Ctrl + X			剪切
+Ctrl + V			粘贴
+Ctrl + Z			撤销
+Ctrl + Y			重做
+Ctrl + S			保存
+Ctrl + Tab			切换标签
+Ctrl + PgUp			上个标签
+Ctrl + PgDn			下个标签
+Ctrl + Home			起始位置
+Ctrl + End			末尾位置
+Ctrl + Space		切换键盘
 
-Ctrl + Shift + 左键单击		起始文件到结尾文件选中
-Ctrl + Shift + S	全部保存
-Ctrl + Shift + Esc	任务管理器
-Ctrl + Alt + Del	定位登录窗口	
+Ctrl + Shift	切换输入法
+
+Ctrl + Shift + 左键单击		单个多选 + 连续选中
+Ctrl + Shift + Home			从当前位置到起始位置选中
+Ctrl + Shift + End			从当前位置到末尾位置选中
+Ctrl + Shift + S			全部保存
+Ctrl + Shift + Esc			任务管理器
+Ctrl + Alt + Del			定位登录窗口
