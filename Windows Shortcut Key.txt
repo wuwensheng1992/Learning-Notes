@@ -28,6 +28,7 @@ Win + 方向	当前窗口上下左右停靠或放大缩小
 Alt + Tab		切换当前桌面的程序
 Alt + F4		关闭当前窗口
 Alt + 左键双击	查看文件属性
+Alt + Shift		切换输入法
 
 Shift + 左键单击	连续选中
 Shift + 右键单击	可选择复制为路径（即上下文菜单新增一项“复制为路径”）
@@ -50,8 +51,7 @@ Ctrl + PgDn			下个标签
 Ctrl + Home			起始位置
 Ctrl + End			末尾位置
 Ctrl + Space		切换键盘
-
-Ctrl + Shift	切换输入法
+Ctrl + Shift		切换输入法
 
 Ctrl + Shift + 左键单击		单个多选 + 连续选中
 Ctrl + Shift + Home			从当前位置到起始位置选中
