@@ -1,0 +1,8 @@
+Ctrl + U			转换成小写
+Ctrl + Shift + U	转换成大写
+
+Ctrl + Shift + L	删除选中行
+Alt + 上下键	移动行
+
+CTRL+K，CTRL+C		添加注释
+CTRL+K，CTRL+U		取消注释
