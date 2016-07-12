@@ -1,8 +1,16 @@
 Ctrl + U			转换成小写
 Ctrl + Shift + U	转换成大写
 
-Ctrl + Shift + L	删除选中行
 Alt + 上下键	移动行
+
+Ctrl + Shift + L	删除选中行
+Ctrl + Delete		删除句末空白
 
 CTRL+K，CTRL+C		添加注释
 CTRL+K，CTRL+U		取消注释
+
+Ctrl + J	代码提示
+
+Ctrl + .	操作提示
+
+Alt + Shift + Enter		窗口最大化
