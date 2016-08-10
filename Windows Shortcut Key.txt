@@ -45,6 +45,7 @@ Ctrl + V			粘贴
 Ctrl + Z			撤销
 Ctrl + Y			重做
 Ctrl + S			保存
+Ctrl + 上下键		滚动页面
 Ctrl + Tab			切换标签
 Ctrl + PgUp			上个标签
 Ctrl + PgDn			下个标签
