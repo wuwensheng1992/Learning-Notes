@@ -35,6 +35,8 @@ Shift + 右键单击	可选择复制为路径（即上下文菜单新增一项�
 Shift + Del			彻底删除
 Shift + Space		全角半角切换
 Shift + 26个字母	字母转换成大写/小写
+Shift + Home		从光标位置到行首选中
+Shift + End			从光标位置到行尾选中
 
 Ctrl + 左键单击		单个多选
 Ctrl + 鼠标滚轮		视图放大/缩小
@@ -55,8 +57,8 @@ Ctrl + Space		切换键盘
 Ctrl + Shift		切换输入法
 
 Ctrl + Shift + 左键单击		单个多选 + 连续选中
-Ctrl + Shift + Home			从当前位置到起始位置选中
-Ctrl + Shift + End			从当前位置到末尾位置选中
+Ctrl + Shift + Home			从光标位置到起始位置选中
+Ctrl + Shift + End			从光标位置到末尾位置选中
 Ctrl + Shift + S			全部保存
 Ctrl + Shift + Esc			任务管理器
 
