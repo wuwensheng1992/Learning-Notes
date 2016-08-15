@@ -19,7 +19,7 @@ Alt + 鼠标选择区域				列编辑
 Alt + Shift + 方向键选择区域	列编辑
 
 Ctrl + Shift + L	删除选中行
-Ctrl + Delete		删除句末空白
+Ctrl + Delete		删除当前光标后的一个单词
 
 Ctrl + .	操作提示
 Ctrl + ,	定位到某个文件
@@ -43,3 +43,5 @@ Ctrl+K,Ctrl+C		添加注释
 Ctrl+K,Ctrl+U		取消注释
 Ctrl+R,Ctrl+R		重命名
 Ctrl+M,Ctrl+M		折叠/展开代码块
+Ctrl+K,Ctrl+D		格式化全部代码
+Ctrl+K,Ctrl+F		格式化选中的代码
