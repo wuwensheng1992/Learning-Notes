@@ -7,16 +7,21 @@ Ctrl + Shift + Enter	向下换行
 Ctrl + I				向下查找（上次查找/替换的关键字）
 Ctrl + Shift + I		向上查找（上次查找/替换的关键字）
 
+///		文档注释快速生成
+
 F3				向下查找（上次查找/替换的关键字）
 Shift + F3		向上查找（上次查找/替换的关键字）
 F7				查看代码
 Shift + F7		视图设计器
 F12				转到定义
 Shift + F12		查找引用
+F9				添加/取消断点
 
 Alt + 上下键	移动行
 Alt + 鼠标选择区域				列编辑
+
 Alt + Shift + 方向键选择区域	列编辑
+Alt + Shift + Enter		窗口最大化
 
 Ctrl + Shift + L	删除选中行
 Ctrl + Delete		删除当前光标后的一个单词
@@ -31,13 +36,6 @@ Ctrl + C	复制行
 Ctrl + L/X	剪切行
 Ctrl + F	查找
 Ctrl + H	替换
-Ctrl + Shift + H	在文件中替换
-
-F9		添加/取消断点
-
-Alt + Shift + Enter		窗口最大化
-
-Ctrl + Shift + Space	显示重载项
 
 Ctrl+K,Ctrl+C		添加注释
 Ctrl+K,Ctrl+U		取消注释
@@ -45,3 +43,7 @@ Ctrl+R,Ctrl+R		重命名
 Ctrl+M,Ctrl+M		折叠/展开代码块
 Ctrl+K,Ctrl+D		格式化全部代码
 Ctrl+K,Ctrl+F		格式化选中的代码
+
+Ctrl + Shift + H	在文件中替换
+Ctrl + Shift + Space	显示重载项
+
