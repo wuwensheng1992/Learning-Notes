@@ -1,20 +1,38 @@
 运行命令：
+gpedit.msc-----组策略
+secpol.msc-----本地安全策略
+lusrmgr.msc-----本机用户和组
+devmgmt.msc-----设备管理器
+diskmgmt.msc-----磁盘管理
+compmgmt.msc-----计算机管理
 services.msc
-gpedit.msc
 
-msconfig
-mstsc
-dxdiag
-regedit
-netplwiz
-cmd
-calc
-notepad
+logoff-----注销
+winver-----检查Windows版本
+dxdiag-----检查DirectX信息
+regedit-----注册表编辑器
+netplwiz-----用户帐户
+msconfig-----系统配置
+
+cmd-----命令提示符
+calc-----动计算器
+write-----写字板
+mstsc-----远程桌面连接 
+mspaint-----画图板
+magnify-----放大镜
+taskmgr-----任务管理器 
+notepad-----记事本
+cleanmgr-----磁盘清理
+eventvwr-----事件查看器
+explorer-----资源管理器
 
 
 控制台命令：help 命令名，或 命令名 /?
-systeminfo
-ipconfig
-netstat
+ping-----网络诊断
+telnet-----远程控制
+netstat-----端口检测
+ipconfig-----显示IP配置值 
+systeminfo-----显示系统信息
+
 
 
