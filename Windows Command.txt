@@ -1,0 +1,20 @@
+运行命令：
+services.msc
+gpedit.msc
+
+msconfig
+mstsc
+dxdiag
+regedit
+netplwiz
+cmd
+calc
+notepad
+
+
+控制台命令：help 命令名，或 命令名 /?
+systeminfo
+ipconfig
+netstat
+
+
