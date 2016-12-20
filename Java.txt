@@ -12,6 +12,9 @@ StringUtils.splitPreserveAllTokens(group_condition, ','); // 保留所有空白�
 2）构造器注入
 @Autowired
 
+3、javafx打包exe
+命令提示符（管理员）：javafxpackager -deploy -native image -appclass view.WebViewStore -srcdir "D:\NetBeansProjects Ridge\WebViewTest\dist" -outdir "F://hjstore" -outfile hjstore -name hjstore
+
 
 
 
