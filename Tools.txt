@@ -37,6 +37,9 @@ Windows自带的notepad（记事本编辑器），保存UTF-8编码的文件时�
 6、PowerDesigner16.5使用
 1）JDBC连接数据库：只支持32位jdk，且JDBC驱动必须加入CLASSPATH变量值中。
 
+7、NotePad++列编辑模式选中区域
+1）Alt+Shift+光标位置
+2）Ctrl+Alt+鼠标拖动
 
 
 
