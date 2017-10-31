@@ -29,6 +29,7 @@ Alt + Tab		切换当前桌面的程序
 Alt + F4		关闭当前窗口
 Alt + 左键双击	查看文件属性
 Alt + Shift		切换输入法
+Alt + Enter   Excel换行
 
 Shift + 左键单击	连续选中
 Shift + 右键单击	可选择复制为路径（即上下文菜单新增一项“复制为路径”）
