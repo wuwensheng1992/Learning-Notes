@@ -64,6 +64,7 @@ Alt + Shift + A		列编辑
 Alt + Shift + O		开启/关闭高亮显示
 
 Ctrl + Alt + H		查看类、接口、常量、属性、方法调用处
+Ctrl + Shift + G	查看变量的调用处
 
 Quick Access（快速访问）
 1、Toggle Breadcrumb.面包屑导航
