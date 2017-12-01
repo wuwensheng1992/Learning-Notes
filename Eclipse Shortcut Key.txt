@@ -35,6 +35,9 @@ Ctrl + S	保存当前文件
 Ctrl + Shift + S	保存全部文件
 
 Ctrl + Shift + -	代码上下分栏
+Ctrl + Shift + {	代码左右分栏
+Ctrl + Shift + Numpad_Divede	代码折叠
+Ctrl + Shift +N umpad_Multiply	代码展开
 Ctrl + Shift + L	显示快捷键帮助
 Ctrl + Shift + T	查找类、接口、枚举、注解
 Ctrl + Shift + R	查找文件
