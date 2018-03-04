@@ -1,7 +1,7 @@
 Ctrl + Win + D		创建虚拟桌面
 Ctrl + Win + F4		关闭虚拟桌面
 Ctrl + Win + 左/右	切换虚拟桌面
-Ctrl + Win + C    切换黑白模式
+Ctrl + Win + C        切换黑白模式
 
 Win + 1~9	定位任务栏程序
 Win + +/-	放大镜
