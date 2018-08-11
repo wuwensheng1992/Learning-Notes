@@ -57,12 +57,14 @@ Ctrl + Home			起始位置
 Ctrl + End			末尾位置
 Ctrl + Space		切换键盘
 Ctrl + Shift		切换输入法
+Ctrl + N        打开新窗口
 
 Ctrl + Shift + 左键单击		单个多选 + 连续选中
 Ctrl + Shift + Home			从光标位置到起始位置选中
 Ctrl + Shift + End			从光标位置到末尾位置选中
 Ctrl + Shift + S			全部保存
 Ctrl + Shift + Esc			任务管理器
+Ctrl + Shift + N        打开新窗口（特殊）
 
 Ctrl + Alt + Del		定位登录窗口
 Ctrl + Alt + 方向		屏幕上向左右倒置
