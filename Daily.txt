@@ -1,7 +1,3 @@
-小毛病：肠胃不好(忌同一段时间内交替食用冷热食物饮料)、过敏性鼻炎、眼压高、打嗝、慢性咽炎、左手大拇指
-接到推销电话，礼貌拒绝，回应“不需要或不感兴趣”，然后直接挂断。
-学而不思则罔，思而不学则殆。学而不用则废，用而不学则滞。
-
 1、javascript中，&&、||取值时，0、""、null、false、undefined、NaN会当成false来处理。
 如：alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
 
