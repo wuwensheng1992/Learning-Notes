@@ -123,7 +123,7 @@ c）查看你的 master 分支在昨天的时候指向了哪个提交：git show
 
 
 10、分支管理
-1）查看分支：git branch [-r] [-a] [-v]
+1）查看分支：git branch [-r] [-a] [-v] [-vv]
 2）创建分支：git branch <name>
 3）切换分支：git checkout <name>
 4）创建并切换分支：git checkout -b <name>
